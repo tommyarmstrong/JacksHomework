@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maths Homework</title>
+    <script src="https://kit.fontawesome.com/35f39a8657.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="maths.css">
+  </head>
+  <body>
+    <div class="content">
+      <div class="moduleSelector" id="moduleSelector"></div>
+      <h1>Maths Homework</h1>
+      <div class="intro" id=intro></div>
+      <div id="questionsTable"></div>
+      <div class="summaryPercent" id="summaryPercent"></div>
+      <div class="summaryText" id="summaryText"></div>
+    </div>
+    <script>
+      // Set questions manually in JSON as a way to quickly get started on the logic
+      const data = {'modules':
+        [
+          {
+          "module_number": "1.1",
+          "module_name": "Adding numbers under 10",
+          "questions": [
+            {
+              "type": "hard_coded",
+              "question": "\u00BC 6 + 3 = ",
+              "answer": 9
+            },
+            {
+              "type": "hard_coded",
+              "question": "7 + 3 = ",
+              "answer": 10
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 6,
+              'y': 4,
+              'operator': '+'
+            },
+            
+            {
+              'type': 'x_operator_y',
+              'x': 4,
+              'y': 6,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 5,
+              'y': 3,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 3,
+              'y': 5,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 7,
+              'y': 8,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 6,
+              'y': 2,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 2,
+              'y': 6,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 9,
+              'y': 9,
+              'operator': '+'
+            }]
+          },
+          {
+          "module_number": "1.2",
+          "module_name": "Adding numbers under 20",
+          "questions": [
+            {
+              'type': 'x_operator_y',
+              'x': 12,
+              'y': 8,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 15,
+              'y': 5,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 16,
+              'y': 2,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 11,
+              'y': 6,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 3,
+              'y': 11,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 9,
+              'y': 10,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 7,
+              'y': 5,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 5,
+              'y': 7,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 15,
+              'y': 6,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 8,
+              'y': 16,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 12,
+              'y': 4,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 8,
+              'y': 14,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 5,
+              'y': 6,
+              'operator': '+'
+            },
+            {
+              'type': 'x_operator_y',
+              'x': 5,
+              'y': 8,
+              'operator': '+'
+            }]
+          },
+          {'module_number': '1.3',
+          'module_name': 'Adding tens',
+          'questions':
+            [
+              {
+                'type': 'x_operator_y',
+                'x': 30,
+                'y': 10,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 30,
+                'y': 40,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 60,
+                'y': 20,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 80,
+                'y': 20,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 90,
+                'y': 40,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 80,
+                'y': 50,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 50,
+                'y': 60,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 70,
+                'y': 40,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 80,
+                'y': 70,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 90,
+                'y': 70,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 12,
+                'y': 30,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 15,
+                'y': 20,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 11,
+                'y': 70,
+                'operator': '+'
+              }
+            ]
+          },
+          {'module_number': '1.5',
+          'module_name': 'Adding three single digit numbers',
+          'questions':
+            [
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 6,
+                'y': 3,
+                'z': 2,
+                'operator1': '+',
+                'operator2': '+',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 2,
+                'y': 2,
+                'z': 4,
+                'operator1': '+',
+                'operator2': '+',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 6,
+                'y': 2,
+                'z': 1,
+                'operator1': '+',
+                'operator2': '+',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 1,
+                'y': 3,
+                'z': 7,
+                'operator1': '+',
+                'operator2': '+',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 8,
+                'y': 2,
+                'z': 2,
+                'operator1': '+',
+                'operator2': '+',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 5,
+                'y': 3,
+                'z': 2,
+                'operator1': '+',
+                'operator2': '+',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 4,
+                'y': 4,
+                'z': 4,
+                'operator1': '+',
+                'operator2': '+',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 9,
+                'y': 3,
+                'z': 8,
+                'operator1': '+',
+                'operator2': '+',
+              }
+            ]
+          },
+          {'module_number': '2.1',
+          'module_name': 'Subtracting numbers under 10',
+          'questions':
+            [
+              {
+                'type': 'x_operator_y',
+                'x': 7,
+                'y': 2,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 7,
+                'y': 5,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 9,
+                'y': 1,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 9,
+                'y': 8,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 8,
+                'y': 3,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 8,
+                'y': 5,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 7,
+                'y': 4,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 7,
+                'y': 3,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 10,
+                'y': 0,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 6,
+                'y': 4,
+                'operator': '-'
+              }
+            ]
+          },
+          {'module_number': '2.2',
+          'module_name': 'Subtracting numbers under 20',
+          'questions':
+            [
+              {
+                'type': 'x_operator_y',
+                'x': 12,
+                'y': 2,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 12,
+                'y': 10,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 20,
+                'y': 5,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 18,
+                'y': 8,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 18,
+                'y': 10,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 11,
+                'y': 3,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 11,
+                'y': 8,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 17,
+                'y': 3,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 11,
+                'y': 6,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 11,
+                'y': 10,
+                'operator': '-'
+              }
+            ]
+          }
+          ,
+          {'module_number': '2.3',
+          'module_name': 'Subtracting two single digit numbers',
+          'questions':
+            [
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 12,
+                'y': 2,
+                'z': 7,
+                'operator1': '-',
+                'operator2': '-',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 14,
+                'y': 4,
+                'z': 3,
+                'operator1': '-',
+                'operator2': '-',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 20,
+                'y': 5,
+                'z': 5,
+                'operator1': '-',
+                'operator2': '-',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 14,
+                'y': 7,
+                'z': 3,
+                'operator1': '-',
+                'operator2': '-',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 10,
+                'y': 8,
+                'z': 2,
+                'operator1': '-',
+                'operator2': '-',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 13,
+                'y': 5,
+                'z': 4,
+                'operator1': '-',
+                'operator2': '-',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 18,
+                'y': 8,
+                'z': 3,
+                'operator1': '-',
+                'operator2': '-',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 30,
+                'y': 20,
+                'z': 5,
+                'operator1': '-',
+                'operator2': '-',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 50,
+                'y': 20,
+                'z': 10,
+                'operator1': '-',
+                'operator2': '-',
+              },
+              {
+                'type': 'x_operator_y_operator_z',
+                'x': 100,
+                'y': 50,
+                'z': 49,
+                'operator1': '-',
+                'operator2': '-',
+              }
+            ]
+          },
+          {'module_number': '2.4',
+          'module_name': 'Subtracting 10s',
+          'questions':
+            [
+              {
+                'type': 'x_operator_y',
+                'x': 20,
+                'y': 10,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 30,
+                'y': 10,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 37,
+                'y': 10,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 57,
+                'y': 10,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 43,
+                'y': 40,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 53,
+                'y': 40,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 73,
+                'y': 40,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 25,
+                'y': 20,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 35,
+                'y': 20,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 85,
+                'y': 20,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 21,
+                'y': 20,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 51,
+                'y': 20,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 71,
+                'y': 20,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 57,
+                'y': 10,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 39,
+                'y': 30,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 59,
+                'y': 30,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 79,
+                'y': 30,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 62,
+                'y': 60,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 72,
+                'y': 60,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 82,
+                'y': 60,
+                'operator': '-'
+              }
+            ]
+          },
+          {'module_number': '3.1',
+          'module_name': 'Two times tables',
+          'introduction': "Don't forget that numbers can be multiplied in any order. 2 x 7\
+           and 7 x 2 have the same answer.",
+          'questions':
+            [
+              {
+                'type': 'x_operator_y',
+                'x': 1,
+                'y': 2,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 2,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 3,
+                'y': 2,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 4,
+                'y': 2,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 4,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 6,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 6,
+                'y': 2,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 8,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 7,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 9,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 9,
+                'y': 2,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 20,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 100,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 50,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 60,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 200,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 70,
+                'operator': '*'
+              }
+            ]
+          },
+          {'module_number': '3.2',
+          'module_name': 'Five times tables',
+          'introduction': "Don't forget that numbers can be multiplied in any order. 2 x 5\
+           and 5 x 2 have the same answer.",
+          'questions':
+            [
+              {
+                'type': 'x_operator_y',
+                'x': 1,
+                'y': 5,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 5,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 3,
+                'y': 5,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 5,
+                'y': 3,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 4,
+                'y': 5,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 5,
+                'y': 4,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 5,
+                'y': 5,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 6,
+                'y': 5,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 8,
+                'y': 5,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 9,
+                'y': 5,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 7,
+                'y': 5,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 5,
+                'y': 20,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 5,
+                'y': 100,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 5,
+                'y': 50,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 5,
+                'y': 60,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 40,
+                'y': 5,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 5,
+                'y': 70,
+                'operator': '*'
+              }
+            ]
+          },
+          {'module_number': '3.3',
+          'module_name': 'Ten times tables',
+          'introduction': '<b>Multiplying by 10 is easy!</b> Just add a zero to the end of\
+           the number.<br><br>Numbers can be multiplied in any order. 4 x 10  and 10 x 4\
+           have the same answer.',
+          'questions':
+            [
+              {
+                'type': 'x_operator_y',
+                'x': 1,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 3,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 5,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 10,
+                'y': 5,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 2,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 10,
+                'y': 4,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 6,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 10,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 13,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 20,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 15,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 20,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 88,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 27,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 17,
+                'y': 10,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 10,
+                'y': 50,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 10,
+                'y': 60,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 10,
+                'y': 100,
+                'operator': '*'
+              }
+            ]
+          },
+          {'module_number': '4.1',
+          'module_name': 'Halves under twenty',
+          'questions':
+            [
+              {
+                "type": "half",
+                "question": 10,
+              },
+              {
+                "type": "half",
+                "question": 6,
+              },
+              {
+                "type": "half",
+                "question": 2,
+              },
+              {
+                "type": "half",
+                "question": 4,
+              },
+              {
+                "type": "half",
+                "question": 8,
+              },
+              {
+                "type": "half",
+                "question": 12
+              },
+              {
+                "type": "half",
+                "question": 20
+              },
+              {
+                "type": "half",
+                "question": 16
+              },
+              {
+                "type": "half",
+                "question": 14
+              },
+              {
+                "type": "half",
+                "question": 40
+              },
+              {
+                "type": "half",
+                "question": 60
+              },
+              {
+                "type": "half",
+                "question": 80
+              },
+              {
+                "type": "half",
+                "question": 100
+              },
+              {
+                "type": "half",
+                "question": 200
+              },
+              {
+                "type": "half",
+                "question": 400
+              },
+            ]
+          },
+          {'module_number': '4.2',
+          'module_name': 'Quarters and halves under twenty',
+          'questions':
+            [
+              {
+                "type": "half",
+                "question": 4
+              },
+              {
+                "type": "quarter",
+                "question": 4
+              },
+              {
+                "type": "half",
+                "question": 8
+              },
+              {
+                "type": "quarter",
+                "question": 8
+              },
+              {
+                "type": "half",
+                "question": 12
+              },
+              {
+                "type": "quarter",
+                "question": 12
+              },
+              {
+                "type": "half",
+                "question": 20
+              },
+              {
+                "type": "quarter",
+                "question": 20
+              },
+              {
+                "type": "half",
+                "question": 40
+              },
+              {
+                "type": "quarter",
+                "question": 40,
+              },
+            ]
+          },
+          {'module_number': '5.1',
+          'module_name': 'Mixed operators on single digit numbers',
+          'questions':
+            [
+              {
+                'type': 'x_operator_y',
+                'x': 8,
+                'y': 5,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 3,
+                'y': 2,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 6,
+                'y': 2,
+                'operator': '/'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 4,
+                'y': 5,
+                'operator': '+'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 9,
+                'y': 4,
+                'operator': '-'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 3,
+                'y': 3,
+                'operator': '*'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 10,
+                'y': 2,
+                'operator': '/'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 10,
+                'y': 5,
+                'operator': '/'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 8,
+                'y': 2,
+                'operator': '/'
+              },
+              {
+                'type': 'x_operator_y',
+                'x': 8,
+                'y': 4,
+                'operator': '/'
+              }
+            ]
+          },
+        ]
+      }
+
+      // Create a module selector
+      var selectModules = document.createElement("select");
+      selectModules.id = "modulesList";
+
+      // Create first option as a holding point
+      var first_option = document.createElement("option");
+      first_option.value = 0;
+      first_option.text = "Select a module...";
+      selectModules.appendChild(first_option);
+
+      // Create and append the options from the data
+      for (var i = 0; i < data.modules.length; i++) {
+          var option = document.createElement("option");
+          option.value = data.modules[i].module_number;
+          option.text = data.modules[i].module_number + " - " + data.modules[i].module_name;
+          selectModules.appendChild(option);
+      }
+      document.getElementById('moduleSelector').appendChild(selectModules);
+
+
+      // When a module is selected find call a function to
+      // find and display the questions
+      document.getElementById("modulesList").onchange = findModuleQuestions;
+
+
+      function findModuleQuestions() {
+        for (var i =0; i < data.modules.length; i++) {
+          if ( data.modules[i].module_number == this.value ) {
+            let questions = data.modules[i].questions;
+            let intro = data.modules[i].introduction;
+            // Refresh the questions table
+            displayQuestions(intro, questions);
+          }
+        }
+      }
+
+      function getQuestion(question) {
+        // Extract the question from the data depending on the question type
+        if ( question.type == "hard_coded" ) {
+          return question.question;
+        }
+        else if ( question.type == "x_operator_y" ) {
+          if ( question.operator == "/" ) {
+            return  question.x + " \u00F7 " + question.y + " = ";
+          }
+          else if (question.operator == "*" ) {
+            return  question.x + " \u00D7 " + question.y + " = ";
+          }
+          else {
+            return question.x + " " + question.operator + " " + question.y + " = ";
+          }
+        }
+        else if ( question.type == "half" ) {
+          return "\u00BD of " + question.question + " = ";
+        }
+        else if ( question.type == "quarter" ) {
+          return "\u00BC of " + question.question + " = ";
+        }
+        else if ( question.type == "x_operator_y_operator_z" ) {
+          return question.x + " " + question.operator1 + " " + question.y + " " + question.operator2 + " " + question.z + " = ";
+        }
+      }
+
+      function evaluateAnswer(value1, value2, operator) {
+        if ( operator == "+" ) {
+          return value1 + value2;
+        }
+        else if ( operator == "-" ) {
+          return value1 - value2;
+        }
+        else if ( operator == "*" ) {
+          return value1 * value2;
+        }
+        else if ( operator == "/" ) {
+          return value1 / value2;
+        }
+      }
+
+      function getAnswer(question) {
+        // Determine the answer depending on the question type
+       if ( question.type == "x_operator_y" ) {
+        return evaluateAnswer(question.x, question.y, question.operator)
+       }
+       else if ( question.type == "x_operator_y_operator_z" ){
+        // WARNING:: This logic will operate in order of variables it  
+        // will not follow mathmatical heirarchy
+        // e.g. 2 + 3 * 5 will evaluate as 25 rather than 30
+        // Only use this for combining +/- or multiply/divide combinations
+        var step1 = evaluateAnswer(question.x, question.y, question.operator1)
+        return evaluateAnswer(step1, question.z, question.operator2)
+       }
+      else if ( question.type == 'half' ) {
+        return question.question / 2
+      }
+      else if ( question.type == 'quarter' ) {
+        return question.question / 4
+      }
+      else if ( question.type == "three_numbers" ) {
+        return 
+      }
+
+      else {
+        return question.answer;
+      }
+      }
+
+      function displayQuestions (introduction, questions) {
+        // Display the introduction if there is one
+        if ( introduction ) {
+          document.getElementById("intro").innerHTML = introduction + "<br><br>"
+        }
+        else {
+          document.getElementById("intro").innerHTML = ""
+        }
+        // Create a table to display the questions
+        var table = document.createElement('table');
+        // For each question in the JSON data create a table row
+        for( var i = 0; i < questions.length; i++ ) {
+          var row = table.insertRow();
+          var question = questions[i];
+          // Cell with the question
+          var questionCell = row.insertCell();
+          questionCell.appendChild(document.createTextNode(getQuestion(question)));
+          //questionText = getQuestion(question)
+          //questionCell.appendChild(document.createTextNode());
+          questionCell.id = "question_" + i;
+          questionCell.className = "question";
+          // Cell to input an answer / response
+          var responseCell = row.insertCell();
+          responseInput = document.createElement("input");
+          responseInput.id = "response_value_" + i;
+          responseInput.type = "number";
+          responseInput.min = "0";
+          responseInput.max = "999";
+          responseCell.appendChild(responseInput);
+          responseCell.id = "response_" + i;
+          // Cell to show if the answer is correct or incorrect
+          var checkAnswerCell = row.insertCell();
+          checkAnswerCell.id = "checkAnswer_" + i;
+        }
+        // Append the button to check answers
+        var row = table.insertRow();
+        var buttonCell =  row.insertCell();
+        buttonCell.setAttribute("colspan", "2")
+
+        buttonCell.appendChild(createCheckButton());
+
+        //table.appendChild(createCheckButton())
+
+        // Update the parent div 'questionsTable' with the new table
+        let questionsParent = document.getElementById('questionsTable');
+        let questionsFirstChild = document.getElementById('questionsTable').firstElementChild;
+        if ( questionsFirstChild == null) {
+          // If the parent div (questionsTable) has no child then
+          // append the table as a child
+          questionsParent.appendChild(table);
+        }
+        else {
+          // Else replace the table in the child of the parent div
+          questionsParent.replaceChild(table, questionsFirstChild);
+        }
+        // Clear previous scores and comments
+        document.getElementById("summaryPercent").innerHTML = "";
+        document.getElementById("summaryText").innerHTML = "";
+      }
+
+      function createCheckButton() {
+        // Create a button to check the answers
+        var checkButton = document.createElement('button')
+        checkButton.type = "button"
+        checkButton.id = "checkButton"
+        checkButton.class = "button"
+        checkButton.setAttribute("onclick", "checkAll()")
+        checkButton.setAttribute("class", "button")
+        checkButton.appendChild(document.createTextNode("Check Answers"));
+        return checkButton
+      }
+
+      function checkAll() {
+        // Check the given answers and report the total score
+        // Find the selected questions
+        let selectedModule = document.getElementById("modulesList").value
+        for (var i = 0; i < data.modules.length; i++) {
+          if ( data.modules[i].module_number == selectedModule ) {
+            questions = data.modules[i].questions;
+          }
+        }
+        // Use fun icons from Font Awesome to indicate correct / incorrect answers
+        correctAnswer = '<i class="fa-regular fa-face-smile fa-2x" style="color:green"></i>'
+        incorrectAnswer = '<i class="fa-solid fa-poop fa-2x" style="color:#662B00"></i>'
+        // Check the answeres and update the total score
+        let totalScore = 0;
+        for (k = 0; k < questions.length; k++) {
+          response = document.getElementById("response_value_" + k).value
+          if ( response == getAnswer(questions[k]) ) {
+            document.getElementById("checkAnswer_" + k).innerHTML = correctAnswer;
+            totalScore += 1;
+          }
+          else {
+            document.getElementById("checkAnswer_" + k).innerHTML = incorrectAnswer;
+          }
+        }
+        // Show the total score as a percentage
+        summaryPercent = Math.round(totalScore / questions.length * 100);
+        document.getElementById("summaryPercent").innerHTML = summaryPercent + "%";
+        document.getElementById("summaryText").innerHTML = summarizeResults(summaryPercent)
+        document.getElementById("summaryPercent").scrollIntoView();
+      }
+
+      function summarizeResults(percent) {
+        // Assess thre results and provide feedback
+        if ( percent == 0 ) {
+          return "You must be having a laugh!! You're Spurs!!";
+          }
+        else if ( percent < 20 ) {
+          return "You need a lot of help. You're West Ham.";
+          }
+        else if ( percent < 50 ) {
+          return "You need a lot more practise. You're Arsenal";
+          }
+        else if ( percent < 67 ) {
+          return "Not too bad! You're definately getting there. You're Exeter City.";
+          }
+        else if ( percent < 80 ) {
+          return "You were so close. Well done! You're Haringey Borough!";
+          }
+        else if ( percent < 100 ) {
+          return "Wow that was good! Almost perfect. You're Beacon Knights.";
+          }
+        else if ( percent == 100 ) {
+          return "NEWCASTLE! NEWCASTLE! NEWCASTLE! NEWCASTLE! <br><br> You're a genius! WELL DONE!";
+          }
+        else return ""
+      }
+   </script>
+  </body>
+</html>
