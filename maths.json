@@ -1,0 +1,411 @@
+{
+  "modules": [
+    {
+      "module_number": "1.1",
+      "module_name": "Addition of numbers under 10",
+      "questions": [
+        {
+          "type": "hard_coded",
+          "question": "2 + 3 =  ",
+          "answer": 5
+        },
+        {
+          "type": "hard_coded",
+          "question": "6 + 3 = ",
+          "answer": 9
+        },
+        {
+          "type": "hard_coded",
+          "question": "1 + 3 = ",
+          "answer": 4
+        }
+      ]
+    },
+    {"module_number": "1.2",
+    "module_name": "Subtraction of numbers under 10",
+    "questions":
+      [
+        {
+          "type": "hard_coded",
+          "question": "5 - 3 = ",
+          "answer": 2
+        },
+        {
+          "type": "hard_coded",
+          "question": "6 - 3 = ",
+          "answer": 3
+        },
+        {
+          "type": "hard_coded",
+          "question": "7 - 3 = ",
+          "answer": 4
+        },
+        {
+          "type": "hard_coded",
+          "question": "3 - 1 = ",
+          "answer": 2
+        }
+      ]
+    },
+    {"module_number": "1.3",
+    "module_name": "Mixed operators on single digit numbers",
+    "questions":
+      [
+        {
+          "type": "x_operator_y",
+          "x": 3,
+          "y": 1,
+          "operator": "-"
+        },
+        {
+          "type": "x_operator_y",
+          "x": 3,
+          "y": 2,
+          "operator": "*"
+        },
+        {
+          "type": "x_operator_y",
+          "x": 6,
+          "y": 2,
+          "operator": "/"
+        },
+        {
+          "type": "x_operator_y",
+          "x": 8,
+          "y": 2,
+          "operator": "+"
+        },
+        {
+          "type": "x_operator_y",
+          "x": 3,
+          "y": 1,
+          "operator": "-"
+        },
+        {
+          "type": "x_operator_y",
+          "x": 3,
+          "y": 2,
+          "operator": "*"
+        },
+        {
+          "type": "x_operator_y",
+          "x": 6,
+          "y": 2,
+          "operator": "/"
+        },
+        {
+          "type": "x_operator_y",
+          "x": 8,
+          "y": 2,
+          "operator": "+"
+        }
+      ]
+    },
+    {
+    "module_number": 1.4,
+    "module_name": "Some questions",
+    "questions": [
+      {
+        "type": "x_operator_y",
+        "x": 7,
+        "y": 2,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 5,
+        "y": 9,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 4,
+        "y": 0,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 6,
+        "y": 0,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 1,
+        "y": 6,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 8,
+        "y": 3,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 3,
+        "y": 5,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 6,
+        "y": 7,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 5,
+        "y": 7,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 2,
+        "y": 7,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 4,
+        "y": 9,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 9,
+        "y": 7,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 8,
+        "y": 5,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 9,
+        "y": 5,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 4,
+        "y": 2,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 9,
+        "y": 0,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 0,
+        "y": 3,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 1,
+        "y": 1,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 7,
+        "y": 2,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 8,
+        "y": 8,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 5,
+        "y": 7,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 6,
+        "y": 9,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 4,
+        "y": 8,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 0,
+        "y": 2,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 8,
+        "y": 8,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 9,
+        "y": 7,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 1,
+        "y": 3,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 1,
+        "y": 9,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 2,
+        "y": 1,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 3,
+        "y": 6,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 2,
+        "y": 8,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 8,
+        "y": 3,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 6,
+        "y": 3,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 4,
+        "y": 5,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 8,
+        "y": 9,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 3,
+        "y": 2,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 3,
+        "y": 9,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 9,
+        "y": 0,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 5,
+        "y": 6,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 1,
+        "y": 0,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 5,
+        "y": 2,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 0,
+        "y": 0,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 4,
+        "y": 6,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 5,
+        "y": 8,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 5,
+        "y": 6,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 0,
+        "y": 4,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 4,
+        "y": 4,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 7,
+        "y": 6,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 1,
+        "y": 0,
+        "operator": "+"
+      },
+      {
+        "type": "x_operator_y",
+        "x": 7,
+        "y": 7,
+        "operator": "+"
+      }
+    ]
+  } 
+  ]
+}
