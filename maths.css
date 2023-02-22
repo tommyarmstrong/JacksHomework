@@ -1,0 +1,61 @@
+html {
+    background-color: PowderBlue;
+    }
+    .content {
+      text-align: left;
+      padding: 30px;
+      margin: 0px auto;
+    font-family: Arial, Helvetica, sans-serif;
+      }
+    .intro {
+    padding: 10px;
+    font-size: 20px;
+    }
+    .question {
+    text-align: right;
+    font-size: 30px;
+    }
+    .moduleSelector {
+    text-align: right;
+    }
+    .summaryPercent{
+      font-size: 15vw
+    }
+    .summaryText{
+      font-size: 6vw
+    }
+    .button {
+    background-color: teal;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+      table,
+      td {
+      border-collapse: collapse;
+      padding: 10px;
+      border: 3px;
+      }
+    input {
+      font-size: 25px;
+      }
+    @media screen and (max-width: 400px) {
+      /* comes into effect for screens less than or equal to 400 pixels */
+      .content {
+        text-align: left;
+        padding: 5px;
+        /* margin: 0px auto; */
+        }
+      .question {
+        font-size: 8vw ;
+        }
+      input {
+        font-size: 16px;
+        }
+      }
