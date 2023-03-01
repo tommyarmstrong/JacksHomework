@@ -1,2 +1,2 @@
 # JacksHomework
-Jacks
+A simple maths game for Jack to play on a laptop or phone. 
