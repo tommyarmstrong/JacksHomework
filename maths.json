@@ -1,0 +1,352 @@
+{
+  "modules":
+  [
+    {
+      "module_number": "1.1",
+      "module_name": "Adding numbers under 10",
+      "type": "operator",
+      "x1min": 0,
+      "x1max": 10,
+      "x2min": 0,
+      "x2max": 10,
+      "operator1": "+",
+      "number_questions": 12
+      },
+      {
+        "module_number": "1.2",
+        "module_name": "Adding numbers under 20",
+        "type": "operator",
+        "x1min": 0,
+        "x1max": 20,
+        "x2min": 0,
+        "x2max": 10,
+        "operator1": "+",
+        "number_questions": 12
+      },
+      {
+        "module_number": "1.3",
+        "module_name": "Adding tens",
+        "type": "operator_tens",
+        "x1min": 1,
+        "x1max": 10,
+        "x2min": 1,
+        "x2max": 10,
+        "operator1": "+",
+        "number_questions": 12,
+        "questions":
+          [
+            {
+              "type": "x_operator_y",
+              "x": 12,
+              "y": 30,
+              "operator": "+"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 15,
+              "y": 20,
+              "operator": "+"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 11,
+              "y": 70,
+              "operator": "+"
+            }
+          ]
+      },
+      {
+        "module_number": "1.4",
+        "module_name": "Adding three single digit numbers",
+        "type": "double_operator",
+        "x1min": 1,
+        "x1max": 10,
+        "x2min": 1,
+        "x2max": 10,
+        "x3min": 1,
+        "x3max": 10,
+        "operator1": "+",
+        "operator2": "+",
+        "number_questions": 12
+      },
+      {"module_number": "1.5",
+      "module_name": "Adding two double digit numbers",
+      "type": "operator",
+      "x1min": 10,
+      "x1max": 49,
+      "x2min": 10,
+      "x2max": 49,
+      "operator1": "+",
+      "number_questions": 10,
+      "questions":
+        [
+          {
+            "type": "x_operator_y",
+            "x": 800,
+            "y": 550,
+            "operator": "+"
+          },
+          {
+            "type": "x_operator_y",
+            "x": 350,
+            "y": 250,
+            "operator": "-"
+          }
+        ]  
+      },
+      {
+        "module_number": "2.1",
+        "module_name": "Subtracting numbers under 10",
+        "type": "operator",
+        "x1min": 0,
+        "x1max": 10,
+        "x2min": 0,
+        "x2max": 10,
+        "operator1": "-",
+        "number_questions": 12
+      },
+      {
+        "module_number": "2.2",
+        "module_name": "Subtracting from numbers under 20",
+        "type": "operator",
+        "x1min": 10,
+        "x1max": 20,
+        "x2min": 0,
+        "x2max": 10,
+        "operator1": "-",
+        "number_questions": 12
+      },
+      {
+        "module_number": "2.3",
+        "module_name": "Subtracting two numbers between 10 and 20",
+        "type": "operator",
+        "x1min": 10,
+        "x1max": 20,
+        "x2min": 10,
+        "x2max": 20,
+        "operator1": "-",
+        "number_questions": 12
+      },
+      {
+        "module_number": "2.4",
+        "module_name": "Subtracting two single digit numbers",
+        "type": "double_operator",
+        "x1min": 20,
+        "x1max": 30,
+        "x2min": 0,
+        "x2max": 10,
+        "x3min": 0,
+        "x3max": 10,
+        "operator1": "-",
+        "operator2": "-",
+        "number_questions": 12
+      },
+      {
+        "module_number": "2.5",
+        "module_name": "Subtracting 10s",
+        "type": "operator_tens",
+        "questions":
+          [
+            {
+              "type": "x_operator_y",
+              "x": 20,
+              "y": 10,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 30,
+              "y": 10,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 37,
+              "y": 10,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 57,
+              "y": 10,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 43,
+              "y": 40,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 53,
+              "y": 40,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 73,
+              "y": 40,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 25,
+              "y": 20,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 35,
+              "y": 20,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 85,
+              "y": 20,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 21,
+              "y": 20,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 51,
+              "y": 20,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 71,
+              "y": 20,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 57,
+              "y": 10,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 39,
+              "y": 30,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 59,
+              "y": 30,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 79,
+              "y": 30,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 62,
+              "y": 60,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 72,
+              "y": 60,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 82,
+              "y": 60,
+              "operator": "-"
+            }
+          ]
+      },
+      {
+        "module_number": "3.1",
+        "module_name": "Two times tables",
+        "introduction": "Don't forget that numbers can be multiplied in any order. 2 x 7 and 7 x 2 have the same answer.",
+        "type": "times_table",
+        "x": 2
+      },
+      {
+        "module_number": "3.2",
+        "module_name": "Ten times tables",
+        "introduction": "<b>Multiplying by 10 is easy!</b> Just add a zero to the end of the number.<br><br>Numbers can be multiplied in any order. 4 x 10  and 10 x 4 have the same answer.",
+        "type": "times_table",
+        "x": 10
+      },   
+      {
+        "module_number": "3.3",
+        "module_name": "Five times table",
+        "introduction": "Don't forget that numbers can be multiplied in any order. 5 x 7 and 7 x 5 have the same answer.",
+        "type": "times_table",
+        "x": 5
+      },
+      {
+        "module_number": "4.1",
+        "module_name": "Halves under 20",
+        "type": "fraction",
+        "numerator": 1,
+        "denominator": 2,
+        "xmin": 0,
+        "xmax": 20, 
+        "number_questions": 5
+      },
+      {
+        "module_number": "4.2",
+        "module_name": "Quarters under 20",
+        "type": "fraction",
+        "numerator": 1,
+        "denominator": 4,
+        "xmin": 0,
+        "xmax": 20, 
+        "number_questions": 5
+      },
+      {
+        "module_number": "4.3",
+        "module_name": "Halves under 100",
+        "type": "fraction",
+        "numerator": 1,
+        "denominator": 2,
+        "xmin": 0,
+        "xmax": 100, 
+        "number_questions": 10
+      },
+      {
+        "module_number": "5.1",
+        "module_name": "Mixed operators on single digit numbers",
+        "questions":
+          [
+            {
+              "type": "x_operator_y",
+              "x": 8,
+              "y": 5,
+              "operator": "-"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 3,
+              "y": 2,
+              "operator": "*"
+            }
+          ]
+      }
+    ],
+  "messages": [
+    "You must be having a laugh!! You're Spurs!!",
+    "You need a lot of help. You're only Arsenal!",
+    "You need a lot more practise. You're West Ham.",
+    "Not too bad, you're definately getting better. You're Exeter City.",
+    "You're getting closer. Well done! You're Haringey Borough!",
+    "Wow that was good! Almost perfect. You're Beacon Knights.",
+    "NEWCASTLE! NEWCASTLE! NEWCASTLE! NEWCASTLE! <br><br> You're a genius! WELL DONE!"
+  ]
+  }

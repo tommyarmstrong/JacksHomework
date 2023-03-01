@@ -17,364 +17,21 @@
       <div class="summaryText" id="summaryText"></div>
     </div>
     <script>
-      // SEE TEST.HTML IN THE SAME FOLDER, FOR A WAY OF READING THESE DATA FROM FILE
-      // Set questions manually in JSON as a way to quickly get started on the logic
-      const data = {'modules':
-        [
-        {
-            "module_number": "1.1",
-            "module_name": "Adding numbers under 10",
-            "type": "operator",
-            "x1min": 0,
-            "x1max": 10,
-            "x2min": 0,
-            "x2max": 10,
-            "operator1": "+",
-            "number_questions": 12
-          },
-          {
-            "module_number": "1.2",
-            "module_name": "Adding numbers under 20",
-            "type": "operator",
-            "x1min": 0,
-            "x1max": 20,
-            "x2min": 0,
-            "x2max": 10,
-            "operator1": "+",
-            "number_questions": 12
-          },
-          {
-            'module_number': '1.3',
-            'module_name': 'Adding tens',
-            "type": "operator_tens",
-            "x1min": 1,
-            "x1max": 10,
-            "x2min": 1,
-            "x2max": 10,
-            "operator1": "+",
-            "number_questions": 12,
-            'questions':
-              [
-                {
-                  'type': 'x_operator_y',
-                  'x': 12,
-                  'y': 30,
-                  'operator': '+'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 15,
-                  'y': 20,
-                  'operator': '+'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 11,
-                  'y': 70,
-                  'operator': '+'
-                }
-              ]
-          },
-          {
-            'module_number': '1.4',
-            'module_name': 'Adding three single digit numbers',
-            "type": "double_operator",
-            "x1min": 1,
-            "x1max": 10,
-            "x2min": 1,
-            "x2max": 10,
-            "x3min": 1,
-            "x3max": 10,
-            "operator1": "+",
-            "operator2": "+",
-            "number_questions": 12
-          },
-          {'module_number': '1.5',
-          'module_name': 'Adding two double digit numbers',
-          'type': 'operator',
-          'x1min': 10,
-          'x1max': 49,
-          'x2min': 10,
-          'x2max': 49,
-          'operator1': '+',
-          'number_questions': 10,
-          'questions':
-            [
-              {
-                'type': 'x_operator_y',
-                'x': 800,
-                'y': 550,
-                'operator': '+'
-              },
-              {
-                'type': 'x_operator_y',
-                'x': 350,
-                'y': 250,
-                'operator': '-'
-              }
-            ]  
-          },
-          {
-            "module_number": "2.1",
-            "module_name": "Subtracting numbers under 10",
-            "type": "operator",
-            "x1min": 0,
-            "x1max": 10,
-            "x2min": 0,
-            "x2max": 10,
-            "operator1": "-",
-            "number_questions": 12
-          },
-          {
-            "module_number": "2.2",
-            "module_name": "Subtracting from numbers under 20",
-            "type": "operator",
-            "x1min": 10,
-            "x1max": 20,
-            "x2min": 0,
-            "x2max": 10,
-            "operator1": "-",
-            "number_questions": 12
-          },
-          {
-            "module_number": "2.3",
-            "module_name": "Subtracting two numbers between 10 and 20",
-            "type": "operator",
-            "x1min": 10,
-            "x1max": 20,
-            "x2min": 10,
-            "x2max": 20,
-            "operator1": "-",
-            "number_questions": 12
-          },
-          {
-            'module_number': '2.4',
-            'module_name': 'Subtracting two single digit numbers',
-            "type": "double_operator",
-            "x1min": 20,
-            "x1max": 30,
-            "x2min": 0,
-            "x2max": 10,
-            "x3min": 0,
-            "x3max": 10,
-            "operator1": "-",
-            "operator2": "-",
-            "number_questions": 12
-          },
-          {
-            'module_number': '2.5',
-            'module_name': 'Subtracting 10s',
-            "type": "operator_tens",
-            'questions':
-              [
-                {
-                  'type': 'x_operator_y',
-                  'x': 20,
-                  'y': 10,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 30,
-                  'y': 10,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 37,
-                  'y': 10,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 57,
-                  'y': 10,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 43,
-                  'y': 40,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 53,
-                  'y': 40,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 73,
-                  'y': 40,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 25,
-                  'y': 20,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 35,
-                  'y': 20,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 85,
-                  'y': 20,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 21,
-                  'y': 20,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 51,
-                  'y': 20,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 71,
-                  'y': 20,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 57,
-                  'y': 10,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 39,
-                  'y': 30,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 59,
-                  'y': 30,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 79,
-                  'y': 30,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 62,
-                  'y': 60,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 72,
-                  'y': 60,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 82,
-                  'y': 60,
-                  'operator': '-'
-                }
-              ]
-          },
-          {
-            'module_number': '3.1',
-            'module_name': 'Two times tables',
-            'introduction': "Don't forget that numbers can be multiplied in any order. 2 x 7\
-            and 7 x 2 have the same answer.",
-            'type': 'times_table',
-            'x': 2
-          },
-          {
-            'module_number': '3.2',
-            'module_name': 'Ten times tables',
-            'introduction': '<b>Multiplying by 10 is easy!</b> Just add a zero to the end of\
-            the number.<br><br>Numbers can be multiplied in any order. 4 x 10  and 10 x 4\
-            have the same answer.',
-            'type': 'times_table',
-            'x': 10
-          },   
-          {
-            'module_number': '3.3',
-            'module_name': 'Five times table',
-            'introduction': "Don't forget that numbers can be multiplied in any order. 5 x 7\
-            and 7 x 5 have the same answer.",
-            'type': 'times_table',
-            'x': 5
-          },
-          {
-            "module_number": "4.1",
-            "module_name": "Halves under 20",
-            "type": "fraction",
-            "numerator": 1,
-            "denominator": 2,
-            "xmin": 0,
-            "xmax": 20, 
-            "number_questions": 5
-          },
-          {
-            "module_number": "4.2",
-            "module_name": "Quarters under 20",
-            "type": "fraction",
-            "numerator": 1,
-            "denominator": 4,
-            "xmin": 0,
-            "xmax": 20, 
-            "number_questions": 5
-          },
-          {
-            "module_number": "4.3",
-            "module_name": "Halves under 100",
-            "type": "fraction",
-            "numerator": 1,
-            "denominator": 2,
-            "xmin": 0,
-            "xmax": 100, 
-            "number_questions": 10
-          },
-          {
-            'module_number': '5.1',
-            'module_name': 'Mixed operators on single digit numbers',
-            'questions':
-              [
-                {
-                  'type': 'x_operator_y',
-                  'x': 8,
-                  'y': 5,
-                  'operator': '-'
-                },
-                {
-                  'type': 'x_operator_y',
-                  'x': 3,
-                  'y': 2,
-                  'operator': '*'
-                },
-              ]
-          }
-        ],
-        "messages": [
-          "You must be having a laugh!! You're Spurs!!",
-          "You need a lot of help. You're only Arsenal!",
-          "You need a lot more practise. You're West Ham.",
-          "Not too bad, you're definately getting better. You're Exeter City.",
-          "You're getting closer. Well done! You're Haringey Borough!",
-          "Wow that was good! Almost perfect. You're Beacon Knights.",
-          "NEWCASTLE! NEWCASTLE! NEWCASTLE! NEWCASTLE! <br><br> You're a genius! WELL DONE!"
-        ]
-        }
-          
+      // Read data from JSON file 
+      const maths_data_url = "./maths.json";
+
+      async function getMaths(url) {
+        // Making an API call (request)
+        // and getting the response back
+        const response = await fetch(url);
+
+        // Parsing it to JSON format  
+        var data = await response.json();
+        // Set as a global variable for the browser
+        window.data = data;
+        doWork(data)
+      }
+      getMaths(maths_data_url);
   
       // Specify Classes for different question types
 
@@ -601,186 +258,189 @@
 
       // BEGINNING OF THE FUNCTIONALITY
 
-      // Create a module selector
-      //
-      var selectModules = document.createElement("select");
-      selectModules.id = "modulesList";
-      // Create first option as a holding point
-      var first_option = document.createElement("option");
-      first_option.value = 0;
-      first_option.text = "Select a module...";
-      selectModules.appendChild(first_option);
-      // Create additional options based on the modules in the data
-      for (let i = 0; i < data.modules.length; i++) {
-          var option = document.createElement("option");
-          option.value = data.modules[i].module_number;
-          option.text = data.modules[i].module_number + " - " + data.modules[i].module_name;
-          selectModules.appendChild(option);
-      }
-      document.getElementById('moduleSelector').appendChild(selectModules);
-
-      // When a module is selected call a function to create an array
-      // of questions
-      //
-      document.getElementById("modulesList").onchange = selectQuestions;
-
-      function selectQuestions() {
-        // Function to create an array of question objects when a module is selected
-        for (let i =0; i < data.modules.length; i++) {
-          if ( data.modules[i].module_number == this.value ) {
-            let module = data.modules[i];
-            let introduction = module.introduction;
-            
-            // Create an array for the quetion objects
-            let questions = [];
-            // Find the type of questions and construct objects 
-            // from appropriate the question Class, then append
-            // to the array
-            // 
-            // First questions that are auto generated from metadata
-            if ( module.type == "operator" ) {
-              for (let i=0; i<module.number_questions; i++) {
-                question = new OperatorQuestion(module);          
-                questions.push(question);
-              }
-            }
-            if ( module.type == "double_operator" ) {
-              for (let i=0; i<module.number_questions; i++) {
-                question = new DoubleOperatorQuestion(module);          
-                questions.push(question);
-              }
-            }
-            if ( module.type == "operator_tens" ) {
-              for (let i=0; i<module.number_questions; i++) {
-                question = new OperatorTensQuestion(module);          
-                questions.push(question);
-              }
-            }
-            else if ( module.type == "fraction" ) {
-              for (let i=0; i<module.number_questions; i++) {
-                question = new FractionQuestion(module);          
-                questions.push(question);
-              }
-            }
-            else if ( module.type == "times_table" ) {
-              for (let i=1; i<6; i++) {
-                question = new SpecificOperatorQuestion(i, module.x, "*");          
-                questions.push(question);
-              }
-              for (let i=6; i<11; i++) {
-                question = new SpecificOperatorQuestion(i, module.x, "*");          
-                questions.push(question);
-                question = new SpecificOperatorQuestion(module.x, i, "*");          
-                questions.push(question);
-              }
-              question = new SpecificOperatorQuestion(module.x, 20, "*");          
-              questions.push(question);
-              question = new SpecificOperatorQuestion(module.x, 100, "*");          
-              questions.push(question);
-              question = new SpecificOperatorQuestion(40, module.x, "*");          
-              questions.push(question);
-              question = new SpecificOperatorQuestion(module.x, 70, "*");          
-              questions.push(question);
-            }
-
-            // Then specific questions, which can be added
-            if (module.questions) {
-              for (let i=0; i<module.questions.length; i++) {
-                if ( module.questions[i].type == "hard_coded" ) {
-                  //Generate hardcoded object type
-                  question = new HardCodedQuestion(module.questions[i].question, module.questions[i].answer);
-                  questions.push(question);
-                }
-                else if ( module.questions[i].type == "x_operator_y" ) {
-                  question = new SpecificOperatorQuestion(module.questions[i].x, module.questions[i].y, module.questions[i].operator);
-                  questions.push(question);
-                }
-                else if ( module.questions[i].type == "half" ) {
-                  question = new HardCodedHalf(module.questions[i].question);
-                  questions.push(question);
-                }
-                else if ( module.questions[i].type == "quarter" ) {
-                  question = new HardCodedQuarter(module.questions[i].question);
-                  questions.push(question);
-                }
-              }
-            }
-            // Pass the array of questions to a function that will create the HTML
-            displayQuestions(introduction, questions);         
-          }  
+      function doWork(data) {
+        // Create a module selector
+        //
+        var selectModules = document.createElement("select");
+        selectModules.id = "modulesList";
+        // Create first option as a holding point
+        var first_option = document.createElement("option");
+        first_option.value = 0;
+        first_option.text = "Select a module...";
+        selectModules.appendChild(first_option);
+        // Create additional options based on the modules in the data
+        for (let i = 0; i < data.modules.length; i++) {
+            var option = document.createElement("option");
+            option.value = data.modules[i].module_number;
+            option.text = data.modules[i].module_number + " - " + data.modules[i].module_name;
+            selectModules.appendChild(option);
         }
-      }
+        document.getElementById('moduleSelector').appendChild(selectModules);
 
-      function displayQuestions (introduction, questions) {
-        // Display the introduction if there is one
-        if ( introduction ) {
-          document.getElementById("intro").innerHTML = introduction + "<br><br>"
-        }
-        else {
-          document.getElementById("intro").innerHTML = ""
-        }
-        // Create a table to display the questions
-        var table = document.createElement('table');
-        table.id = "questions_table";
+        // When a module is selected call a function to create an array
+        // of questions
+        //
+        document.getElementById("modulesList").onchange = selectQuestions;
 
-        // For each question in the array create a table row
-        for( let i=0; i<questions.length; i++ ) {
+        function selectQuestions() {
+          // Function to create an array of question objects when a module is selected
+          for (let i =0; i < data.modules.length; i++) {
+            if ( data.modules[i].module_number == this.value ) {
+              let module = data.modules[i];
+              let introduction = module.introduction;
+              
+              // Create an array for the quetion objects
+              let questions = [];
+              // Find the type of questions and construct objects 
+              // from appropriate the question Class, then append
+              // to the array
+              // 
+              // First questions that are auto generated from metadata
+              if ( module.type == "operator" ) {
+                for (let i=0; i<module.number_questions; i++) {
+                  question = new OperatorQuestion(module);          
+                  questions.push(question);
+                }
+              }
+              if ( module.type == "double_operator" ) {
+                for (let i=0; i<module.number_questions; i++) {
+                  question = new DoubleOperatorQuestion(module);          
+                  questions.push(question);
+                }
+              }
+              if ( module.type == "operator_tens" ) {
+                for (let i=0; i<module.number_questions; i++) {
+                  question = new OperatorTensQuestion(module);          
+                  questions.push(question);
+                }
+              }
+              else if ( module.type == "fraction" ) {
+                for (let i=0; i<module.number_questions; i++) {
+                  question = new FractionQuestion(module);          
+                  questions.push(question);
+                }
+              }
+              else if ( module.type == "times_table" ) {
+                for (let i=1; i<6; i++) {
+                  question = new SpecificOperatorQuestion(i, module.x, "*");          
+                  questions.push(question);
+                }
+                for (let i=6; i<11; i++) {
+                  question = new SpecificOperatorQuestion(i, module.x, "*");          
+                  questions.push(question);
+                  question = new SpecificOperatorQuestion(module.x, i, "*");          
+                  questions.push(question);
+                }
+                question = new SpecificOperatorQuestion(module.x, 20, "*");          
+                questions.push(question);
+                question = new SpecificOperatorQuestion(module.x, 100, "*");          
+                questions.push(question);
+                question = new SpecificOperatorQuestion(40, module.x, "*");          
+                questions.push(question);
+                question = new SpecificOperatorQuestion(module.x, 70, "*");          
+                questions.push(question);
+              }
+
+              // Then specific questions, which can be added
+              if (module.questions) {
+                for (let i=0; i<module.questions.length; i++) {
+                  if ( module.questions[i].type == "hard_coded" ) {
+                    //Generate hardcoded object type
+                    question = new HardCodedQuestion(module.questions[i].question, module.questions[i].answer);
+                    questions.push(question);
+                  }
+                  else if ( module.questions[i].type == "x_operator_y" ) {
+                    question = new SpecificOperatorQuestion(module.questions[i].x, module.questions[i].y, module.questions[i].operator);
+                    questions.push(question);
+                  }
+                  else if ( module.questions[i].type == "half" ) {
+                    question = new HardCodedHalf(module.questions[i].question);
+                    questions.push(question);
+                  }
+                  else if ( module.questions[i].type == "quarter" ) {
+                    question = new HardCodedQuarter(module.questions[i].question);
+                    questions.push(question);
+                  }
+                }
+              }
+              // Pass the array of questions to a function that will create the HTML
+              displayQuestions(introduction, questions);         
+            }  
+          }
+        }
+
+        function displayQuestions (introduction, questions) {
+          // Display the introduction if there is one
+          
+          if ( introduction ) {
+            document.getElementById("intro").innerHTML = introduction + "<br><br>"
+          }
+          else {
+            document.getElementById("intro").innerHTML = ""
+          }
+          // Create a table to display the questions
+          var table = document.createElement('table');
+          table.id = "questions_table";
+
+          // For each question in the array create a table row
+          for( let i=0; i<questions.length; i++ ) {
+            var row = table.insertRow();
+                      
+            // Create a cell for the question
+            var questionCell = row.insertCell();
+            questionCell.appendChild(document.createTextNode(questions[i].getQuestion()));
+            questionCell.id = "question_" + i;
+            questionCell.className = "question";
+
+            // Create a cell for the response
+            responseInput = document.createElement("input");
+            responseInput.id = "response_value_" + i;
+            responseInput.type = "number";
+            responseInput.min = "0";
+            responseInput.max = "999";
+            var responseCell = row.insertCell();
+            responseCell.appendChild(responseInput);
+            responseCell.id = "response_" + i;
+
+            // Create a cell to display if the answer is correct or incorrect
+            var checkAnswerCell = row.insertCell();
+            checkAnswerCell.id = "checkAnswer_" + i;
+            // Insert the correct answer as an attribue to check against later
+            checkAnswerCell.setAttribute("correct_answer", questions[i].getAnswer());
+          }
+
+          // Create a button to check the answers
+          var checkButton = document.createElement('button')
+          checkButton.type = "button"
+          checkButton.id = "checkButton"
+          checkButton.class = "button"
+          checkButton.setAttribute("onclick", "checkAll()")
+          checkButton.setAttribute("class", "button")
+          checkButton.appendChild(document.createTextNode("Check Answers"));
+
+          // Insert a row to the bottom of the questions table 
+          // and append the button to check answers
           var row = table.insertRow();
-                    
-          // Create a cell for the question
-          var questionCell = row.insertCell();
-          questionCell.appendChild(document.createTextNode(questions[i].getQuestion()));
-          questionCell.id = "question_" + i;
-          questionCell.className = "question";
+          var buttonCell =  row.insertCell();
+          buttonCell.setAttribute("colspan", "2")
+          buttonCell.appendChild(checkButton);
 
-          // Create a cell for the response
-          responseInput = document.createElement("input");
-          responseInput.id = "response_value_" + i;
-          responseInput.type = "number";
-          responseInput.min = "0";
-          responseInput.max = "999";
-          var responseCell = row.insertCell();
-          responseCell.appendChild(responseInput);
-          responseCell.id = "response_" + i;
-
-          // Create a cell to display if the answer is correct or incorrect
-          var checkAnswerCell = row.insertCell();
-          checkAnswerCell.id = "checkAnswer_" + i;
-          // Insert the correct answer as an attribue to check against later
-          checkAnswerCell.setAttribute("correct_answer", questions[i].getAnswer());
+          // Update the parent div 'questionsTable' with the new table
+          let questionsParent = document.getElementById('questionsTable');
+          let questionsFirstChild = document.getElementById('questionsTable').firstElementChild;
+          if ( questionsFirstChild == null) {
+            // If the parent div (questionsTable) has no child then
+            // append the table as a child
+            questionsParent.appendChild(table);
+          }
+          else {
+            // Else replace the table in the child of the parent div
+            questionsParent.replaceChild(table, questionsFirstChild);
+          }
+          // Clear previous scores and comments
+          document.getElementById("summaryPercent").innerHTML = "";
+          document.getElementById("summaryText").innerHTML = "";
         }
-
-        // Create a button to check the answers
-        var checkButton = document.createElement('button')
-        checkButton.type = "button"
-        checkButton.id = "checkButton"
-        checkButton.class = "button"
-        checkButton.setAttribute("onclick", "checkAll()")
-        checkButton.setAttribute("class", "button")
-        checkButton.appendChild(document.createTextNode("Check Answers"));
-
-        // Insert a row to the bottom of the questions table 
-        // and append the button to check answers
-        var row = table.insertRow();
-        var buttonCell =  row.insertCell();
-        buttonCell.setAttribute("colspan", "2")
-        buttonCell.appendChild(checkButton);
-
-        // Update the parent div 'questionsTable' with the new table
-        let questionsParent = document.getElementById('questionsTable');
-        let questionsFirstChild = document.getElementById('questionsTable').firstElementChild;
-        if ( questionsFirstChild == null) {
-          // If the parent div (questionsTable) has no child then
-          // append the table as a child
-          questionsParent.appendChild(table);
-        }
-        else {
-          // Else replace the table in the child of the parent div
-          questionsParent.replaceChild(table, questionsFirstChild);
-        }
-        // Clear previous scores and comments
-        document.getElementById("summaryPercent").innerHTML = "";
-        document.getElementById("summaryText").innerHTML = "";
       }
 
       function checkAll() {
