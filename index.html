@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jack's Maths</title>
+    <script src="https://kit.fontawesome.com/35f39a8657.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="maths.css">
+  </head>
+  <body>
+    <div class="content">
+      <div class="moduleSelector" id="moduleSelector"></div>
+      <h1>Jack's Maths</h1>
+      <div class="intro" id=intro></div>
+      <div id="questionsTable"></div>
+      <div class="summaryPercent" id="summaryPercent"></div>
+      <div class="summaryText" id="summaryText"></div>
+    </div>
+    <script>
+      // Read data from JSON file 
+      const maths_data_url = "./maths.json";
+
+      async function getMaths(url) {
+        // Making an API call (request)
+        // and getting the response back
+        const response = await fetch(url);
+
+        // Parsing it to JSON format  
+        var data = await response.json();
+        // Set as a global variable for the browser
+        window.data = data;
+        doWork(data)
+      }
+      getMaths(maths_data_url);
+  
+      // Specify Classes for different question types
+
+      class Question {
+        // Methods used by question Classes
+        calcRandomValue(min, max) {
+          //return Math.floor((Math.random() * max) + min);
+          return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        evaluateOperation(value1, value2, operator) {
+          if ( operator == "+" ) {
+            return value1 + value2;
+          }
+          else if ( operator == "-" ) {
+            return value1 - value2;
+          }
+          else if ( operator == "*" ) {
+            return value1 * value2;
+          }
+          else if ( operator == "/" ) {
+            return value1 / value2;
+          }
+        }
+        renderOperator(operator) {
+          if (operator == "*") {return ("\u00D7")}
+          else if (operator == "/") {return ("\u00F7")}
+          else return(operator)
+        }
+      }
+
+      class OperatorQuestion extends Question {
+        #x1min;
+        #x1max;
+        #x2min;
+        #x2max;
+        #operator1;
+        #x1;
+        #x2;
+        constructor(data) {
+          super();
+          this.#x1min = data.x1min;
+          this.#x2min = data.x2min;
+          this.#x1max = data.x1max;
+          this.#x2max = data.x2max;
+          this.#operator1 = data.operator1;        
+          
+          // Calculate two random input values
+          this.#x1 = super.calcRandomValue(this.#x1min, this.#x1max)
+          this.#x2 = super.calcRandomValue(this.#x2min, this.#x2max)
+
+          // If the operator is minus then only allow a non-negative answer
+          if ((this.#operator1 == "-") & (this.#x1 < this.#x2) ) {
+            [this.#x1, this.#x2] = [this.#x2, this.#x1] }
+        }
+        getQuestion() {
+          return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " = ";
+        }  
+        getAnswer() {
+          return super.evaluateOperation(this.#x1, this.#x2, this.#operator1)
+        }
+      }
+
+      class OperatorTensQuestion extends Question {
+        #x1min;
+        #x1max;
+        #x2min;
+        #x2max;
+        #operator1;
+        #x1;
+        #x2;
+        constructor(data) {
+          super();
+          this.#x1min = data.x1min;
+          this.#x2min = data.x2min;
+          this.#x1max = data.x1max;
+          this.#x2max = data.x2max;
+          this.#operator1 = data.operator1;        
+          
+          // Calculate two random input values
+          this.#x1 = super.calcRandomValue(this.#x1min, this.#x1max) * 10;
+          this.#x2 = super.calcRandomValue(this.#x2min, this.#x2max) * 10;
+
+          // If the operator is minus then only allow a non-negative answer
+          if ((this.#operator1 == "-") & (this.#x1 < this.#x2) ) {
+            [this.#x1, this.#x2] = [this.#x2, this.#x1] }
+        }
+        getQuestion() {
+          return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " = ";
+        }  
+        getAnswer() {
+          return super.evaluateOperation(this.#x1, this.#x2, this.#operator1)
+        }
+      }
+
+      class DoubleOperatorQuestion extends Question {
+        #x1min;
+        #x1max;
+        #x2min;
+        #x2max;
+        #x3min;
+        #x3max;
+        #operator1;
+        #operator2;
+        #x1;
+        #x2
+        #x3
+        #x;
+
+        constructor(data) {
+          super();
+          this.#x1min = data.x1min;
+          this.#x2min = data.x2min;
+          this.#x1max = data.x1max;
+          this.#x2max = data.x2max;
+          this.#x3min = data.x3min;
+          this.#x3max = data.x3max;
+          this.#operator1 = data.operator1;        
+          this.#operator2 = data.operator2;        
+          
+          // Calculate random input values
+          this.#x1 = super.calcRandomValue(this.#x1min, this.#x1max);
+          this.#x2 = super.calcRandomValue(this.#x2min, this.#x2max);
+          this.#x3 = super.calcRandomValue(this.#x3min, this.#x3max);
+
+          // TO DO 
+          // Should really check thaat a non-negative answer is set
+          //
+        }    
+        getQuestion() {
+          return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " " + super.renderOperator(this.#operator1) + " " + this.#x3 + " = ";
+        }  
+        getAnswer() {
+          this.#x = super.evaluateOperation(this.#x1, this.#x2, this.#operator1);
+          return super.evaluateOperation(this.#x, this.#x3, this.#operator2)
+        }
+      }
+
+      class FractionQuestion extends Question {
+        #x1min;
+        #x1max;
+        #x1;
+        #numerator;
+        #denominator;
+        constructor(data) {
+          super();
+          this.#x1min = data.xmin;
+          this.#x1max = data.xmax;
+          this.#numerator = data.numerator;
+          this.#denominator = data.denominator;
+          
+          // Obtain a random number that will give an integer answer
+          this.#x1 = super.calcRandomValue(this.#x1min, this.#x1max*this.#numerator/this.#denominator) * this.#denominator
+        }
+        getQuestion() {
+          if (this.#numerator/this.#denominator == 0.5) {return("\u00BD of " + this.#x1 + " = ")} 
+          else if (this.#numerator/this.#denominator == 0.25) {return("\u00BC of " + this.#x1 + " = ")}
+          else {
+            return this.#numerator + " / " + this.#denominator + " of " + this.#x1 + " = ";
+          }
+        }  
+        getAnswer() {
+          return this.#x1*this.#numerator/this.#denominator;
+        }
+      }
+
+      class SpecificOperatorQuestion extends Question {
+        #x1;
+        #x2;
+        #operator1;
+        constructor(x, y, operator) {
+          super();
+          this.#x1 = x;
+          this.#x2 = y;
+          this.#operator1 = operator;        
+        }
+        getQuestion() {
+          return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " = ";
+        }  
+        getAnswer() {
+          return super.evaluateOperation(this.#x1, this.#x2, this.#operator1)
+        }
+      }
+
+      class HardCodedQuestion {
+        #question;
+        #answer;
+        constructor(question, answer) {
+          this.#question = question;
+          this.#answer = answer;
+        }
+        getQuestion() {
+          return this.#question;
+        }  
+        getAnswer() {
+          return this.#answer;
+        }
+      }
+
+      class HardCodedHalf {
+        #x;
+        constructor(question) {
+          this.#x = question;
+        }
+        getQuestion() {
+          return "\u00BD of " + this.#x + " = ";
+        }  
+        getAnswer() {
+          return this.#x / 2;
+        }
+      }
+
+      class HardCodedQuarter {
+        #x;
+        constructor(question) {
+          this.#x = question;
+        }
+        getQuestion() {
+          return "\u00BC of " + this.#x + " = ";
+        }  
+        getAnswer() {
+          return this.#x / 4;
+        }
+      }
+
+      // BEGINNING OF THE FUNCTIONALITY
+
+      function doWork(data) {
+        // Create a module selector
+        //
+        var selectModules = document.createElement("select");
+        selectModules.id = "modulesList";
+        // Create first option as a holding point
+        var first_option = document.createElement("option");
+        first_option.value = 0;
+        first_option.text = "Select a module...";
+        selectModules.appendChild(first_option);
+        // Create additional options based on the modules in the data
+        for (let i = 0; i < data.modules.length; i++) {
+            var option = document.createElement("option");
+            option.value = data.modules[i].module_number;
+            option.text = data.modules[i].module_number + " - " + data.modules[i].module_name;
+            selectModules.appendChild(option);
+        }
+        document.getElementById('moduleSelector').appendChild(selectModules);
+
+        // When a module is selected call a function to create an array
+        // of questions
+        //
+        document.getElementById("modulesList").onchange = selectQuestions;
+
+        function selectQuestions() {
+          // Function to create an array of question objects when a module is selected
+          for (let i =0; i < data.modules.length; i++) {
+            if ( data.modules[i].module_number == this.value ) {
+              let module = data.modules[i];
+              let introduction = module.introduction;
+              
+              // Create an array for the quetion objects
+              let questions = [];
+              // Find the type of questions and construct objects 
+              // from appropriate the question Class, then append
+              // to the array
+              // 
+              // First questions that are auto generated from metadata
+              if ( module.type == "operator" ) {
+                for (let i=0; i<module.number_questions; i++) {
+                  question = new OperatorQuestion(module);          
+                  questions.push(question);
+                }
+              }
+              if ( module.type == "double_operator" ) {
+                for (let i=0; i<module.number_questions; i++) {
+                  question = new DoubleOperatorQuestion(module);          
+                  questions.push(question);
+                }
+              }
+              if ( module.type == "operator_tens" ) {
+                for (let i=0; i<module.number_questions; i++) {
+                  question = new OperatorTensQuestion(module);          
+                  questions.push(question);
+                }
+              }
+              else if ( module.type == "fraction" ) {
+                for (let i=0; i<module.number_questions; i++) {
+                  question = new FractionQuestion(module);          
+                  questions.push(question);
+                }
+              }
+              else if ( module.type == "times_table" ) {
+                for (let i=1; i<6; i++) {
+                  question = new SpecificOperatorQuestion(i, module.x, "*");          
+                  questions.push(question);
+                }
+                for (let i=6; i<11; i++) {
+                  question = new SpecificOperatorQuestion(i, module.x, "*");          
+                  questions.push(question);
+                  question = new SpecificOperatorQuestion(module.x, i, "*");          
+                  questions.push(question);
+                }
+                question = new SpecificOperatorQuestion(module.x, 20, "*");          
+                questions.push(question);
+                question = new SpecificOperatorQuestion(module.x, 100, "*");          
+                questions.push(question);
+                question = new SpecificOperatorQuestion(40, module.x, "*");          
+                questions.push(question);
+                question = new SpecificOperatorQuestion(module.x, 70, "*");          
+                questions.push(question);
+              }
+
+              // Then specific questions, which can be added
+              if (module.questions) {
+                for (let i=0; i<module.questions.length; i++) {
+                  if ( module.questions[i].type == "hard_coded" ) {
+                    //Generate hardcoded object type
+                    question = new HardCodedQuestion(module.questions[i].question, module.questions[i].answer);
+                    questions.push(question);
+                  }
+                  else if ( module.questions[i].type == "x_operator_y" ) {
+                    question = new SpecificOperatorQuestion(module.questions[i].x, module.questions[i].y, module.questions[i].operator);
+                    questions.push(question);
+                  }
+                  else if ( module.questions[i].type == "half" ) {
+                    question = new HardCodedHalf(module.questions[i].question);
+                    questions.push(question);
+                  }
+                  else if ( module.questions[i].type == "quarter" ) {
+                    question = new HardCodedQuarter(module.questions[i].question);
+                    questions.push(question);
+                  }
+                }
+              }
+              // Pass the array of questions to a function that will create the HTML
+              displayQuestions(introduction, questions);         
+            }  
+          }
+        }
+
+        function displayQuestions (introduction, questions) {
+          // Display the introduction if there is one
+          
+          if ( introduction ) {
+            document.getElementById("intro").innerHTML = introduction + "<br><br>"
+          }
+          else {
+            document.getElementById("intro").innerHTML = ""
+          }
+          // Create a table to display the questions
+          var table = document.createElement('table');
+          table.id = "questions_table";
+
+          // For each question in the array create a table row
+          for( let i=0; i<questions.length; i++ ) {
+            var row = table.insertRow();
+                      
+            // Create a cell for the question
+            var questionCell = row.insertCell();
+            questionCell.appendChild(document.createTextNode(questions[i].getQuestion()));
+            questionCell.id = "question_" + i;
+            questionCell.className = "question";
+
+            // Create a cell for the response
+            responseInput = document.createElement("input");
+            responseInput.id = "response_value_" + i;
+            responseInput.type = "number";
+            responseInput.min = "0";
+            responseInput.max = "999";
+            var responseCell = row.insertCell();
+            responseCell.appendChild(responseInput);
+            responseCell.id = "response_" + i;
+
+            // Create a cell to display if the answer is correct or incorrect
+            var checkAnswerCell = row.insertCell();
+            checkAnswerCell.id = "checkAnswer_" + i;
+            // Insert the correct answer as an attribue to check against later
+            checkAnswerCell.setAttribute("correct_answer", questions[i].getAnswer());
+          }
+
+          // Create a button to check the answers
+          var checkButton = document.createElement('button')
+          checkButton.type = "button"
+          checkButton.id = "checkButton"
+          checkButton.class = "button"
+          checkButton.setAttribute("onclick", "checkAll()")
+          checkButton.setAttribute("class", "button")
+          checkButton.appendChild(document.createTextNode("Check Answers"));
+
+          // Insert a row to the bottom of the questions table 
+          // and append the button to check answers
+          var row = table.insertRow();
+          var buttonCell =  row.insertCell();
+          buttonCell.setAttribute("colspan", "2")
+          buttonCell.appendChild(checkButton);
+
+          // Update the parent div 'questionsTable' with the new table
+          let questionsParent = document.getElementById('questionsTable');
+          let questionsFirstChild = document.getElementById('questionsTable').firstElementChild;
+          if ( questionsFirstChild == null) {
+            // If the parent div (questionsTable) has no child then
+            // append the table as a child
+            questionsParent.appendChild(table);
+          }
+          else {
+            // Else replace the table in the child of the parent div
+            questionsParent.replaceChild(table, questionsFirstChild);
+          }
+          // Clear previous scores and comments
+          document.getElementById("summaryPercent").innerHTML = "";
+          document.getElementById("summaryText").innerHTML = "";
+        }
+      }
+
+      function checkAll() {
+        // Check the given answers and report the total score      
+        // Use icons from Font Awesome to indicate correct / incorrect answers
+        correctAnswer = '<i class="fa-regular fa-face-smile fa-2x" style="color:green"></i>'
+        incorrectAnswer = '<i class="fa-solid fa-poop fa-2x" style="color:#662B00"></i>'
+
+        // Check the answer in each row of the table against the correct answer 
+        // and update the total score
+        let totalScore = 0;
+        let table_length = document.getElementById("questions_table").rows.length - 1;
+        for (let i = 0; i < table_length; i++) {
+          response = document.getElementById("response_value_" + i).value
+          // The correct answer was embedded in the HTML earlier for ease of use
+          answer = document.getElementById("checkAnswer_" + i).getAttribute("correct_answer")
+          if ( response == answer ) {
+            document.getElementById("checkAnswer_" + i).innerHTML = correctAnswer;
+            totalScore += 1;
+          }
+          else {
+            document.getElementById("checkAnswer_" + i).innerHTML = incorrectAnswer;
+          }
+        }
+        // Show the total score as a percentage
+        summaryPercent = Math.round(totalScore / table_length * 100);
+        document.getElementById("summaryPercent").innerHTML = summaryPercent + "%";
+        document.getElementById("summaryText").innerHTML = summarizeResults(summaryPercent)
+        document.getElementById("summaryPercent").scrollIntoView();
+      }
+
+      function summarizeResults(resultPercent) { 
+        if (!data.messages) { return ""}
+        else if ( resultPercent == 0 ) { return data.messages[0] }
+        else if ( resultPercent == 100 ) { return data.messages[data.messages.length - 1] }
+        else {
+          let remaining_messages = (data.messages.length -2);
+          for (let i=0; i<remaining_messages; i++) {
+            if (resultPercent < (i+1)*100/remaining_messages) { 
+              return data.messages[i+1] 
+            }
+          }
+        }
+      }
+   </script>
+  </body>
+</html>
