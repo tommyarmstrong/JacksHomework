@@ -98,13 +98,13 @@
 
         }    
         getQuestion() {
-          if ( typeof(this.#x3 !== 'undefined') ) { 
+          if ( !isNaN(this.#x3) ) { 
             return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " " + super.renderOperator(this.#operator1) + " " + this.#x3 + " = ";
           }  
           else { return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " = "; }
         }
         getAnswer() {
-          if ( typeof(this.#x3 !== 'undefined') ) { 
+          if ( !isNaN(this.#x3) ) { 
             this.#x = super.evaluateOperation(this.#x1, this.#x2, this.#operator1);
             return super.evaluateOperation(this.#x, this.#x3, this.#operator2);
           }
