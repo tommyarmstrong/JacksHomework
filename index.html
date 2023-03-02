@@ -67,30 +67,51 @@
         #x1max;
         #x2min;
         #x2max;
+        #x3min;
+        #x3max;
         #operator1;
+        #operator2;
         #x1;
-        #x2;
+        #x2
+        #x3
+        #x;
+
         constructor(data) {
           super();
-          this.#x1min = data.x1min;
-          this.#x2min = data.x2min;
-          this.#x1max = data.x1max;
-          this.#x2max = data.x2max;
-          this.#operator1 = data.operator1;        
-          
-          // Calculate two random input values
-          this.#x1 = super.calcRandomValue(this.#x1min, this.#x1max)
-          this.#x2 = super.calcRandomValue(this.#x2min, this.#x2max)
+          // Calculate random input values
+          this.#x1 = super.calcRandomValue(data.x1min, data.x1max);
+          this.#x2 = super.calcRandomValue(data.x2min, data.x2max);
+          this.#operator1 = data.operator1; 
+          // If x3min and x3max are defined in data then calculate values
+          if ( typeof(data.x3min !== 'undefined') && typeof(data.x3max !== 'undefined') ) { 
+            this.#x3 = super.calcRandomValue(data.x3min, data.x3max); 
+            this.#operator2 = data.operator2;   
+          }
 
           // If the operator is minus then only allow a non-negative answer
           if ((this.#operator1 == "-") & (this.#x1 < this.#x2) ) {
             [this.#x1, this.#x2] = [this.#x2, this.#x1] }
-        }
+
+          // TO DO 
+          // Should really check that a non-negative answer is set for all combinations
+          // Consider how to acheive for three inputs
+
+        }    
         getQuestion() {
-          return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " = ";
-        }  
+          if ( !isNaN(this.#x3) ) { 
+            return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " " + super.renderOperator(this.#operator1) + " " + this.#x3 + " = ";
+          }  
+          else { return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " = "; }
+        }
         getAnswer() {
+          if ( !isNaN(this.#x3) ) { 
+            this.#x = super.evaluateOperation(this.#x1, this.#x2, this.#operator1);
+            return super.evaluateOperation(this.#x, this.#x3, this.#operator2);
+          }
+          else {
+          //this.#x = super.evaluateOperation(this.#x1, this.#x2, this.#operator1);
           return super.evaluateOperation(this.#x1, this.#x2, this.#operator1)
+          }
         }
       }
 
@@ -123,49 +144,6 @@
         }  
         getAnswer() {
           return super.evaluateOperation(this.#x1, this.#x2, this.#operator1)
-        }
-      }
-
-      class DoubleOperatorQuestion extends Question {
-        #x1min;
-        #x1max;
-        #x2min;
-        #x2max;
-        #x3min;
-        #x3max;
-        #operator1;
-        #operator2;
-        #x1;
-        #x2
-        #x3
-        #x;
-
-        constructor(data) {
-          super();
-          this.#x1min = data.x1min;
-          this.#x2min = data.x2min;
-          this.#x1max = data.x1max;
-          this.#x2max = data.x2max;
-          this.#x3min = data.x3min;
-          this.#x3max = data.x3max;
-          this.#operator1 = data.operator1;        
-          this.#operator2 = data.operator2;        
-          
-          // Calculate random input values
-          this.#x1 = super.calcRandomValue(this.#x1min, this.#x1max);
-          this.#x2 = super.calcRandomValue(this.#x2min, this.#x2max);
-          this.#x3 = super.calcRandomValue(this.#x3min, this.#x3max);
-
-          // TO DO 
-          // Should really check thaat a non-negative answer is set
-          //
-        }    
-        getQuestion() {
-          return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " " + super.renderOperator(this.#operator1) + " " + this.#x3 + " = ";
-        }  
-        getAnswer() {
-          this.#x = super.evaluateOperation(this.#x1, this.#x2, this.#operator1);
-          return super.evaluateOperation(this.#x, this.#x3, this.#operator2)
         }
       }
 
@@ -296,15 +274,10 @@
               // to the array
               // 
               // First questions that are auto generated from metadata
+
               if ( module.type == "operator" ) {
                 for (let i=0; i<module.number_questions; i++) {
                   question = new OperatorQuestion(module);          
-                  questions.push(question);
-                }
-              }
-              if ( module.type == "double_operator" ) {
-                for (let i=0; i<module.number_questions; i++) {
-                  question = new DoubleOperatorQuestion(module);          
                   questions.push(question);
                 }
               }
