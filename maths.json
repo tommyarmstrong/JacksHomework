@@ -58,7 +58,7 @@
       {
         "module_number": "1.4",
         "module_name": "Adding three single digit numbers",
-        "type": "double_operator",
+        "type": "operator",
         "x1min": 1,
         "x1max": 10,
         "x2min": 1,
@@ -130,10 +130,10 @@
       {
         "module_number": "2.4",
         "module_name": "Subtracting two single digit numbers",
-        "type": "double_operator",
+        "type": "operator",
         "x1min": 20,
         "x1max": 30,
-        "x2min": 0,
+        "x2min": 1,
         "x2max": 10,
         "x3min": 0,
         "x3max": 10,
