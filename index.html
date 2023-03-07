@@ -96,6 +96,14 @@
           // Should really check that a non-negative answer is set for all combinations
           // Consider how to acheive for three inputs
 
+          // Make sure that division has no remainder
+          if ( this.#operator1 == "/" ) {
+            while ( this.#x1 % this.#x2 != 0 ) {
+              this.#x1 = super.calcRandomValue(data.x1min, data.x1max);
+              this.#x2 = super.calcRandomValue(data.x2min, data.x2max);
+            }
+          }
+
         }    
         getQuestion() {
           if ( !isNaN(this.#x3) ) { 
@@ -172,6 +180,34 @@
         }  
         getAnswer() {
           return this.#x1*this.#numerator/this.#denominator;
+        }
+      }
+
+      class OddEvenQuestion extends Question {
+        // Need to implement a mechanism for select responses
+        // Then have the two possible answers as "Even" and "Odd"
+        #xmin;
+        #xmax;
+        #x1;
+        #answer;
+        constructor(data) {
+          super();
+          this.#xmin = data.xmin;
+          this.#xmax = data.xmax;
+          
+          // Obtain a random number 
+          this.#x1 = super.calcRandomValue(this.#xmin, this.#xmax);
+        }
+        getQuestion() {
+            return ( "Is the number <b>" + this.#x1 + "</b> odd or even?");
+        }  
+        getAnswer() {
+          if ( this.#x1 % 2 == 0) {
+            return "Even";
+          }
+          else if ( this.#x1 % 2 == 1 ) {
+            return "Odd";
+          }
         }
       }
 

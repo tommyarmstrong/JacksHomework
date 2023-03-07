@@ -291,6 +291,39 @@
         "x": 5
       },
       {
+        "module_number": "3.4",
+        "module_name": "Ten times table - random order",
+        "type": "operator",
+        "x1min": 1,
+        "x1max": 10,
+        "x2min": 10,
+        "x2max": 10,
+        "operator1": "*",
+        "number_questions": 12
+      },
+      {
+        "module_number": "3.5",
+        "module_name": "Two times table - random order",
+        "type": "operator",
+        "x1min": 1,
+        "x1max": 10,
+        "x2min": 2,
+        "x2max": 2,
+        "operator1": "*",
+        "number_questions": 12
+      },
+      {
+        "module_number": "3.6",
+        "module_name": "Five times table - random order",
+        "type": "operator",
+        "x1min": 1,
+        "x1max": 10,
+        "x2min": 5,
+        "x2max": 5,
+        "operator1": "*",
+        "number_questions": 12
+      },
+      {
         "module_number": "4.1",
         "module_name": "Halves under 20",
         "type": "fraction",
@@ -344,20 +377,138 @@
       },
       {
         "module_number": "6.1",
-        "module_name": "Mixed operators on single digit numbers",
+        "module_name": "Dividing by 2 under 20",
+        "type": "operator",
+        "x1min": 2,
+        "x1max": 20,
+        "x2min": 2,
+        "x2max": 2,
+        "operator1": "/",
+        "number_questions": 12
+      },
+      {
+        "module_number": "6.2",
+        "module_name": "Dividing by 2 under 100",
+        "type": "operator",
+        "x1min": 2,
+        "x1max": 100,
+        "x2min": 2,
+        "x2max": 2,
+        "operator1": "/",
+        "number_questions": 12
+      },
+      {
+        "module_number": "6.3",
+        "module_name": "Dividing by 10 under 1000",
+        "type": "operator",
+        "x1min": 2,
+        "x1max": 1000,
+        "x2min": 10,
+        "x2max": 10,
+        "operator1": "/",
+        "number_questions": 12
+      },
+      {
+        "module_number": "6.4",
+        "module_name": "Dividing by 5 under 50",
+        "type": "operator",
+        "x1min": 5,
+        "x1max": 50,
+        "x2min": 5,
+        "x2max": 5,
+        "operator1": "/",
+        "number_questions": 10
+      },
+      {
+        "module_number": "6.5",
+        "module_name": "Dividing by 5 under 100",
+        "type": "operator",
+        "x1min": 5,
+        "x1max": 100,
+        "x2min": 5,
+        "x2max": 5,
+        "operator1": "/",
+        "number_questions": 10
+      },
+      {
+        "module_number": "7.1",
+        "module_name": "Time",
         "questions":
           [
             {
-              "type": "x_operator_y",
-              "x": 8,
-              "y": 5,
-              "operator": "-"
+              "type": "hard_coded",
+              "question": "How many seconds in a minute?",
+              "answer": 60
             },
             {
-              "type": "x_operator_y",
-              "x": 3,
-              "y": 2,
-              "operator": "*"
+              "type": "hard_coded",
+              "question": "How many minutes in an hour?",
+              "answer": 60
+            },
+            {
+              "type": "hard_coded",
+              "question": "How many hours in a day?",
+              "answer": 24
+            },
+            {
+              "type": "hard_coded",
+              "question": "How many days in a week?",
+              "answer": 7
+            },
+            {
+              "type": "hard_coded",
+              "question": "How many months in a year?",
+              "answer": 12
+            },
+            {
+              "type": "hard_coded",
+              "question": "How many seasons in a year?",
+              "answer": 4
+            },
+            {
+              "type": "hard_coded",
+              "question": "How many minutes in half an hour?",
+              "answer": 30
+            },
+            {
+              "type": "hard_coded",
+              "question": "How many minutes in quarter of an hour?",
+              "answer": 15
+            },
+            {
+              "type": "hard_coded",
+              "question": "If the time is 5 o'clock, how many hours until 7 o'clock?",
+              "answer": 2
+            },
+            {
+              "type": "hard_coded",
+              "question": "If the time is 10 o'clock, how many minutes until half past 10?",
+              "answer": 30
+            },
+            {
+              "type": "hard_coded",
+              "question": "If the time is quarter to 3, how many minutes until 3 o'clock?",
+              "answer": 15
+            },
+            {
+              "type": "hard_coded",
+              "question": "If the time is 2 o'clock and school finishes at 3:30, how many minutes until the end of school?",
+              "answer": 90
+            },
+            {
+              "type": "hard_coded",
+              "question": "If you get in the bath at 7 o'clock and get out of the bath at 7:30, how many minutes are you in the bath for?",
+              "answer": 30
+            },
+            {
+              "type": "hard_coded",
+              "question": "How many minutes are there in a football match?",
+              "answer": 90
+            },
+            {
+              "type": "hard_coded",
+              "question": "How many days are there in a cricket test match?",
+              "answer": 5
             }
           ]
       }
