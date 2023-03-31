@@ -355,7 +355,43 @@
       },
       {
         "module_number": "5.1",
-        "module_name": "Number Bonds: Subtract from 20",
+        "module_name": "Number Bonds: Add to 10",
+        "type": "number_bond",
+        "x1min": 0,
+        "x1max": 10,
+        "total": 10,
+        "number_questions": 10
+      },
+      {
+        "module_number": "5.2",
+        "module_name": "Number Bonds: Add to 20 (add small number)",
+        "type": "number_bond",
+        "x1min": 10,
+        "x1max": 20,
+        "total": 20,
+        "number_questions": 10
+      },
+      {
+        "module_number": "5.3",
+        "module_name": "Number Bonds: Add to 20 (add big number)",
+        "type": "number_bond",
+        "x1min": 0,
+        "x1max": 10,
+        "total": 20,
+        "number_questions": 10
+      },
+      {
+        "module_number": "5.4",
+        "module_name": "Number Bonds: Add to 20 (mixed)",
+        "type": "number_bond",
+        "x1min": 0,
+        "x1max": 20,
+        "total": 20,
+        "number_questions": 20
+      },
+      {
+        "module_number": "5.5",
+        "module_name": "Number Bonds: Subtract from 20 (easy)",
         "type": "operator",
         "x1min": 20,
         "x1max": 20,
@@ -365,8 +401,8 @@
         "number_questions": 10
       },
       {
-        "module_number": "5.2",
-        "module_name": "Number Bonds: Subtract from 20",
+        "module_number": "5.6",
+        "module_name": "Number Bonds: Subtract from 20 (hard)",
         "type": "operator",
         "x1min": 20,
         "x1max": 20,

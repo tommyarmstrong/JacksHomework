@@ -75,6 +75,7 @@
         #x2
         #x3
         #x;
+        #first_operator_part;
 
         constructor(data) {
           super();
@@ -106,10 +107,11 @@
 
         }    
         getQuestion() {
+          this.#first_operator_part = this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2;
           if ( !isNaN(this.#x3) ) { 
-            return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " " + super.renderOperator(this.#operator1) + " " + this.#x3 + " = ";
+            return this.#first_operator_part + " " +super.renderOperator(this.#operator2) + " " + this.#x3 + " = ";
           }  
-          else { return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " = "; }
+          else { return this.#first_operator_part + " = "; }
         }
         getAnswer() {
           if ( !isNaN(this.#x3) ) { 
@@ -117,7 +119,6 @@
             return super.evaluateOperation(this.#x, this.#x3, this.#operator2);
           }
           else {
-          //this.#x = super.evaluateOperation(this.#x1, this.#x2, this.#operator1);
           return super.evaluateOperation(this.#x1, this.#x2, this.#operator1)
           }
         }
@@ -180,6 +181,30 @@
         }  
         getAnswer() {
           return this.#x1*this.#numerator/this.#denominator;
+        }
+      }
+
+      class NumberBondQuestion extends Question {
+        #x1min;
+        #x1max;
+        #x1;
+        #total;
+        constructor(data) {
+          super();
+          this.#x1min = data.x1min;
+          this.#x1max = data.x1max;
+          this.#total = data.total;
+          // Obtain a random number 
+          this.#x1 = super.calcRandomValue(this.#x1min, this.#x1max);
+        }
+        getQuestion() {
+          return this.#x1 + " + ";
+        }  
+        getAnswer() {
+          return this.#total - this.#x1;
+        }
+        getPostText() {
+          return " = " + this.#total;
         }
       }
 
@@ -293,24 +318,22 @@
 
         // When a module is selected call a function to create an array
         // of questions
+        // Each question in the array is an object created from a class
         //
         document.getElementById("modulesList").onchange = selectQuestions;
 
         function selectQuestions() {
           // Function to create an array of question objects when a module is selected
-          for (let i =0; i < data.modules.length; i++) {
+          for (let i=0; i < data.modules.length; i++) {
             if ( data.modules[i].module_number == this.value ) {
               let module = data.modules[i];
               let introduction = module.introduction;
-              
-              // Create an array for the quetion objects
               let questions = [];
               // Find the type of questions and construct objects 
               // from appropriate the question Class, then append
-              // to the array
+              // to the questions array
               // 
               // First questions that are auto generated from metadata
-
               if ( module.type == "operator" ) {
                 for (let i=0; i<module.number_questions; i++) {
                   question = new OperatorQuestion(module);          
@@ -326,6 +349,12 @@
               else if ( module.type == "fraction" ) {
                 for (let i=0; i<module.number_questions; i++) {
                   question = new FractionQuestion(module);          
+                  questions.push(question);
+                }
+              }
+              else if ( module.type == "number_bond" ) {
+                for (let i=0; i<module.number_questions; i++) {
+                  question = new NumberBondQuestion(module);          
                   questions.push(question);
                 }
               }
@@ -349,7 +378,7 @@
                 question = new SpecificOperatorQuestion(module.x, 70, "*");          
                 questions.push(question);
               }
-
+              //
               // Then specific questions, which can be added
               if (module.questions) {
                 for (let i=0; i<module.questions.length; i++) {
@@ -380,14 +409,15 @@
 
         function displayQuestions (introduction, questions) {
           // Display the introduction if there is one
-          
           if ( introduction ) {
             document.getElementById("intro").innerHTML = introduction + "<br><br>"
           }
           else {
             document.getElementById("intro").innerHTML = ""
           }
+
           // Create a table to display the questions
+          // Each question in the questions array is an object
           var table = document.createElement('table');
           table.id = "questions_table";
 
@@ -410,6 +440,16 @@
             var responseCell = row.insertCell();
             responseCell.appendChild(responseInput);
             responseCell.id = "response_" + i;
+
+            // If the question object has text to display after the response 
+            // Create another cell
+            if ( typeof questions[i].getPostText === 'function' ) {
+              var postResponseText = row.insertCell(); 
+              postResponseText.appendChild(document.createTextNode(questions[i].getPostText()));
+              postResponseText.id = "post_text_" + i;
+              postResponseText.className = "question";
+
+            }
 
             // Create a cell to display if the answer is correct or incorrect
             var checkAnswerCell = row.insertCell();
