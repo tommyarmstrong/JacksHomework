@@ -5,15 +5,23 @@ html {
       text-align: left;
       padding: 30px;
       margin: 0px auto;
-    font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       }
     .intro {
     padding: 10px;
     font-size: 20px;
     }
     .question {
-    text-align: right;
     font-size: 30px;
+    text-align: right;
+    }
+    .response {
+      text-align: center;
+      box-sizing: border-box;
+      width: 0%;
+    }
+    .post_response {
+      font-size: 30px;
     }
     .moduleSelector {
     text-align: right;
@@ -42,6 +50,7 @@ html {
       padding: 10px;
       border: 3px;
       }
+      
     input {
       font-size: 25px;
       }
