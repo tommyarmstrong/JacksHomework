@@ -440,14 +440,15 @@
             var responseCell = row.insertCell();
             responseCell.appendChild(responseInput);
             responseCell.id = "response_" + i;
+            responseCell.className = "response";
 
             // If the question object has text to display after the response 
             // Create another cell
             if ( typeof questions[i].getPostText === 'function' ) {
               var postResponseText = row.insertCell(); 
               postResponseText.appendChild(document.createTextNode(questions[i].getPostText()));
-              postResponseText.id = "post_text_" + i;
-              postResponseText.className = "question";
+              postResponseText.id = "post_response" + i;
+              postResponseText.className = "post_response";
 
             }
 
