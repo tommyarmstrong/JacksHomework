@@ -281,66 +281,77 @@
         "module_number": "Times Tables: Twos (random order)",
         "module_name": "",
         "type": "times_table_random",
+        "number_questions": 10,
         "x": 2
       },
       {
         "module_number": "Times Tables: Threes",
         "module_name": "",
         "type": "times_table",
+        "number_questions": 10,
         "x": 3
       },
       {
         "module_number": "Times Tables: Threes (random order)",
         "module_name": "",
         "type": "times_table_random",
+        "number_questions": 10,
         "x": 3
       },
       {
         "module_number": "Times Tables: Fours",
         "module_name": "",
         "type": "times_table",
+        "number_questions": 10,
         "x": 4
       },
       {
         "module_number": "Times Tables: Fours (random order)",
         "module_name": "",
         "type": "times_table_random",
+        "number_questions": 10,
         "x": 4
       },
       {
         "module_number": "Times Tables: Fives",
         "module_name": "",
         "type": "times_table",
+        "number_questions": 10,
         "x": 5
       },
       {
         "module_number": "Times Tables: Fives (random order)",
         "module_name": "",
         "type": "times_table_random",
+        "number_questions": 10,
         "x": 5
       },
       {
         "module_number": "Times Tables: Sixes",
         "module_name": "",
         "type": "times_table",
+        "number_questions": 10,
         "x": 6
       },
       {
         "module_number": "Times Tables: Sixes (random order)",
         "module_name": "",
         "type": "times_table_random",
+        "number_questions": 10,
         "x": 6
       },
       {
         "module_number": "Times Tables: Tens",
         "module_name": "",
         "type": "times_table",
+        "number_questions": 10,
         "x": 10
       },
       {
         "module_number": "Times Tables: Tens (random order)",
         "module_name": "",
         "type": "times_table_random",
+        "number_questions": 10,
         "x": 10
       },
 
