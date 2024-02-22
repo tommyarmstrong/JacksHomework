@@ -2,8 +2,7 @@
   "modules":
   [
     {
-      "module_number": "1.1",
-      "module_name": "Adding numbers under 10",
+      "module_number": "Addition - numbers under 10",
       "type": "operator",
       "x1min": 0,
       "x1max": 10,
@@ -300,6 +299,13 @@
         "x2max": 10,
         "operator1": "*",
         "number_questions": 12
+      },
+      {
+        "module_number": "Times Tables",
+        "module_name": "8 (random order)",
+        "type": "times_table_random",
+        "x": 8,
+        "number_questions": 10
       },
       {
         "module_number": "3.5",
