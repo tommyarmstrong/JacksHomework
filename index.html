@@ -319,7 +319,7 @@
         for (let i = 0; i < data.modules.length; i++) {
             var option = document.createElement("option");
             option.value = data.modules[i].module_number;
-            option.text = data.modules[i].module_number + " - " + data.modules[i].module_name;
+            option.text = data.modules[i].module_number ;
             selectModules.appendChild(option);
         }
         document.getElementById('moduleSelector').appendChild(selectModules);
@@ -367,16 +367,11 @@
                 }
               }
               else if ( module.type == "times_table" ) {
-                for (let i=1; i<6; i++) {
+                for (let i = 1; i <= 10; i++) {
                   question = new SpecificOperatorQuestion(i, module.x, "*");          
                   questions.push(question);
                 }
-                for (let i=6; i<11; i++) {
-                  question = new SpecificOperatorQuestion(i, module.x, "*");          
-                  questions.push(question);
-                  question = new SpecificOperatorQuestion(module.x, i, "*");          
-                  questions.push(question);
-                }
+                
                 question = new SpecificOperatorQuestion(module.x, 20, "*");          
                 questions.push(question);
                 question = new SpecificOperatorQuestion(module.x, 100, "*");          
@@ -396,12 +391,6 @@
                 shuffle(array);  
                 for (let i=0; i < module.number_questions; i++) {
                   question = new SpecificOperatorQuestion(array[i], module.x, "*");          
-                  questions.push(question);
-                }
-                // shuffle again and repeat questions the other way around
-                shuffle(array);  
-                for (let i=0; i < module.number_questions; i++) {
-                  question = new SpecificOperatorQuestion(module.x, array[i], "*");          
                   questions.push(question);
                 }
               }
