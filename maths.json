@@ -2,8 +2,8 @@
   "modules":
   [
     {
-      "module_number": "1.1",
-      "module_name": "Adding numbers under 10",
+      "module_number": "Addition: under 10",
+      "module_name": "",
       "type": "operator",
       "x1min": 0,
       "x1max": 10,
@@ -13,8 +13,8 @@
       "number_questions": 12
       },
       {
-        "module_number": "1.2",
-        "module_name": "Adding numbers under 20",
+        "module_number": "Addition: under 20",
+        "module_name": "",
         "type": "operator",
         "x1min": 0,
         "x1max": 20,
@@ -24,8 +24,8 @@
         "number_questions": 12
       },
       {
-        "module_number": "1.3",
-        "module_name": "Adding tens",
+        "module_number": "Addition: tens",
+        "module_name": "",
         "type": "operator_tens",
         "x1min": 1,
         "x1max": 10,
@@ -56,8 +56,8 @@
           ]
       },
       {
-        "module_number": "1.4",
-        "module_name": "Adding three single digit numbers",
+        "module_number": "Addition: three single digits",
+        "module_name": "",
         "type": "operator",
         "x1min": 1,
         "x1max": 10,
@@ -69,34 +69,35 @@
         "operator2": "+",
         "number_questions": 12
       },
-      {"module_number": "1.5",
-      "module_name": "Adding two double digit numbers",
-      "type": "operator",
-      "x1min": 10,
-      "x1max": 49,
-      "x2min": 10,
-      "x2max": 49,
-      "operator1": "+",
-      "number_questions": 10,
-      "questions":
-        [
-          {
-            "type": "x_operator_y",
-            "x": 800,
-            "y": 550,
-            "operator": "+"
-          },
-          {
-            "type": "x_operator_y",
-            "x": 350,
-            "y": 250,
-            "operator": "-"
-          }
-        ]  
+      {
+        "module_number": "Addition: two double digits",
+        "module_name": "",
+        "type": "operator",
+        "x1min": 10,
+        "x1max": 49,
+        "x2min": 10,
+        "x2max": 49,
+        "operator1": "+",
+        "number_questions": 10,
+        "questions":
+          [
+            {
+              "type": "x_operator_y",
+              "x": 800,
+              "y": 550,
+              "operator": "+"
+            },
+            {
+              "type": "x_operator_y",
+              "x": 350,
+              "y": 250,
+              "operator": "-"
+            }
+          ]  
       },
       {
-        "module_number": "2.1",
-        "module_name": "Subtracting numbers under 10",
+        "module_number": "Subtraction: under 10",
+        "module_name": "",
         "type": "operator",
         "x1min": 0,
         "x1max": 10,
@@ -106,8 +107,8 @@
         "number_questions": 12
       },
       {
-        "module_number": "2.2",
-        "module_name": "Subtracting from numbers under 20",
+        "module_number": "Subtraction: under 20",
+        "module_name": "",
         "type": "operator",
         "x1min": 10,
         "x1max": 20,
@@ -117,8 +118,8 @@
         "number_questions": 12
       },
       {
-        "module_number": "2.3",
-        "module_name": "Subtracting two numbers between 10 and 20",
+        "module_number": "Subtraction: between 10 and 20",
+        "module_name": "",
         "type": "operator",
         "x1min": 10,
         "x1max": 20,
@@ -128,8 +129,8 @@
         "number_questions": 12
       },
       {
-        "module_number": "2.4",
-        "module_name": "Subtracting two single digit numbers",
+        "module_number": "Subtraction: two single digits",
+        "module_name": "",
         "type": "operator",
         "x1min": 20,
         "x1max": 30,
@@ -142,8 +143,8 @@
         "number_questions": 12
       },
       {
-        "module_number": "2.5",
-        "module_name": "Subtracting 10s",
+        "module_number": "Subtraction: tens",
+        "module_name": "",
         "type": "operator_tens",
         "questions":
           [
@@ -270,62 +271,82 @@
           ]
       },
       {
-        "module_number": "3.1",
-        "module_name": "Two times tables",
+        "module_number": "Times Tables: Twos",
+        "module_name": "",
         "introduction": "Don't forget that numbers can be multiplied in any order. 2 x 7 and 7 x 2 have the same answer.",
         "type": "times_table",
         "x": 2
       },
       {
-        "module_number": "3.2",
-        "module_name": "Ten times tables",
-        "introduction": "<b>Multiplying by 10 is easy!</b> Just add a zero to the end of the number.<br><br>Numbers can be multiplied in any order. 4 x 10  and 10 x 4 have the same answer.",
-        "type": "times_table",
-        "x": 10
-      },   
+        "module_number": "Times Tables: Twos (random order)",
+        "module_name": "",
+        "type": "times_table_random",
+        "x": 2
+      },
       {
-        "module_number": "3.3",
-        "module_name": "Five times table",
-        "introduction": "Don't forget that numbers can be multiplied in any order. 5 x 7 and 7 x 5 have the same answer.",
+        "module_number": "Times Tables: Threes",
+        "module_name": "",
+        "type": "times_table",
+        "x": 3
+      },
+      {
+        "module_number": "Times Tables: Threes (random order)",
+        "module_name": "",
+        "type": "times_table_random",
+        "x": 3
+      },
+      {
+        "module_number": "Times Tables: Fours",
+        "module_name": "",
+        "type": "times_table",
+        "x": 4
+      },
+      {
+        "module_number": "Times Tables: Fours (random order)",
+        "module_name": "",
+        "type": "times_table_random",
+        "x": 4
+      },
+      {
+        "module_number": "Times Tables: Fives",
+        "module_name": "",
         "type": "times_table",
         "x": 5
       },
       {
-        "module_number": "3.4",
-        "module_name": "Ten times table - random order",
-        "type": "operator",
-        "x1min": 1,
-        "x1max": 10,
-        "x2min": 10,
-        "x2max": 10,
-        "operator1": "*",
-        "number_questions": 12
+        "module_number": "Times Tables: Fives (random order)",
+        "module_name": "",
+        "type": "times_table_random",
+        "x": 5
       },
       {
-        "module_number": "3.5",
-        "module_name": "Two times table - random order",
-        "type": "operator",
-        "x1min": 1,
-        "x1max": 10,
-        "x2min": 2,
-        "x2max": 2,
-        "operator1": "*",
-        "number_questions": 12
+        "module_number": "Times Tables: Sixes",
+        "module_name": "",
+        "type": "times_table",
+        "x": 6
       },
       {
-        "module_number": "3.6",
-        "module_name": "Five times table - random order",
-        "type": "operator",
-        "x1min": 1,
-        "x1max": 10,
-        "x2min": 5,
-        "x2max": 5,
-        "operator1": "*",
-        "number_questions": 12
+        "module_number": "Times Tables: Sixes (random order)",
+        "module_name": "",
+        "type": "times_table_random",
+        "x": 6
       },
       {
-        "module_number": "4.1",
-        "module_name": "Halves under 20",
+        "module_number": "Times Tables: Tens",
+        "module_name": "",
+        "type": "times_table",
+        "x": 10
+      },
+      {
+        "module_number": "Times Tables: Tens (random order)",
+        "module_name": "",
+        "type": "times_table_random",
+        "x": 10
+      },
+
+      {
+        "module_number": "Fractions: halves under 20",
+        "module_name": "",
         "type": "fraction",
         "numerator": 1,
         "denominator": 2,
@@ -334,8 +355,8 @@
         "number_questions": 5
       },
       {
-        "module_number": "4.2",
-        "module_name": "Quarters under 20",
+        "module_number": "Fractions: quarters under 20",
+        "module_name": "",
         "type": "fraction",
         "numerator": 1,
         "denominator": 4,
@@ -344,8 +365,8 @@
         "number_questions": 5
       },
       {
-        "module_number": "4.3",
-        "module_name": "Halves under 100",
+        "module_number": "Fractions: halves under 100",
+        "module_name": "",
         "type": "fraction",
         "numerator": 1,
         "denominator": 2,
@@ -354,8 +375,8 @@
         "number_questions": 10
       },
       {
-        "module_number": "5.1",
-        "module_name": "Number Bonds: Add to 10",
+        "module_number": "Number Bonds: add to 10",
+        "module_name": "",
         "type": "number_bond",
         "x1min": 0,
         "x1max": 10,
@@ -363,8 +384,8 @@
         "number_questions": 10
       },
       {
-        "module_number": "5.2",
-        "module_name": "Number Bonds: Add to 20 (add small number)",
+        "module_number": "Number Bonds: add small number to 20",
+        "module_name": "",
         "type": "number_bond",
         "x1min": 10,
         "x1max": 20,
@@ -372,8 +393,8 @@
         "number_questions": 10
       },
       {
-        "module_number": "5.3",
-        "module_name": "Number Bonds: Add to 20 (add big number)",
+        "module_number": "Number Bonds: add big number to 20",
+        "module_name": "",
         "type": "number_bond",
         "x1min": 0,
         "x1max": 10,
@@ -381,8 +402,8 @@
         "number_questions": 10
       },
       {
-        "module_number": "5.4",
-        "module_name": "Number Bonds: Add to 20 (mixed)",
+        "module_number": "Number Bonds: add to 20 (mixed)",
+        "module_name": "",
         "type": "number_bond",
         "x1min": 0,
         "x1max": 20,
@@ -390,8 +411,8 @@
         "number_questions": 20
       },
       {
-        "module_number": "5.5",
-        "module_name": "Number Bonds: Subtract from 20 (easy)",
+        "module_number": "Number Bonds: subtract from 20 (easy)",
+        "module_name": "",
         "type": "operator",
         "x1min": 20,
         "x1max": 20,
@@ -401,8 +422,8 @@
         "number_questions": 10
       },
       {
-        "module_number": "5.6",
-        "module_name": "Number Bonds: Subtract from 20 (hard)",
+        "module_number": "Number Bonds: subtract from 20 (hard)",
+        "module_name": "",
         "type": "operator",
         "x1min": 20,
         "x1max": 20,
@@ -412,8 +433,8 @@
         "number_questions": 10
       },
       {
-        "module_number": "6.1",
-        "module_name": "Dividing by 2 under 20",
+        "module_number": "Division: by 2 under 20",
+        "module_name": "",
         "type": "operator",
         "x1min": 2,
         "x1max": 20,
@@ -423,8 +444,8 @@
         "number_questions": 12
       },
       {
-        "module_number": "6.2",
-        "module_name": "Dividing by 2 under 100",
+        "module_number": "Division: by 2 under 100",
+        "module_name": "",
         "type": "operator",
         "x1min": 2,
         "x1max": 100,
@@ -434,8 +455,8 @@
         "number_questions": 12
       },
       {
-        "module_number": "6.3",
-        "module_name": "Dividing by 10 under 1000",
+        "module_number": "Division: by 10 under 1000",
+        "module_name": "",
         "type": "operator",
         "x1min": 2,
         "x1max": 1000,
@@ -445,8 +466,8 @@
         "number_questions": 12
       },
       {
-        "module_number": "6.4",
-        "module_name": "Dividing by 5 under 50",
+        "module_number": "Division: by 5 under 50",
+        "module_name": "",
         "type": "operator",
         "x1min": 5,
         "x1max": 50,
@@ -456,8 +477,8 @@
         "number_questions": 10
       },
       {
-        "module_number": "6.5",
-        "module_name": "Dividing by 5 under 100",
+        "module_number": "Division: by 5 under 100",
+        "module_name": "",
         "type": "operator",
         "x1min": 5,
         "x1max": 100,
@@ -467,8 +488,8 @@
         "number_questions": 10
       },
       {
-        "module_number": "7.1",
-        "module_name": "Time",
+        "module_number": "Time",
+        "module_name": "",
         "questions":
           [
             {
