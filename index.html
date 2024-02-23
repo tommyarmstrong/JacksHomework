@@ -313,13 +313,13 @@
         // Create first option as a holding point
         var first_option = document.createElement("option");
         first_option.value = 0;
-        first_option.text = "Select a module...";
+        first_option.text = "Pick questions...";
         selectModules.appendChild(first_option);
         // Create additional options based on the modules in the data
         for (let i = 0; i < data.modules.length; i++) {
             var option = document.createElement("option");
-            option.value = data.modules[i].module_number;
-            option.text = data.modules[i].module_number ;
+            option.value = data.modules[i].module_id;
+            option.text = data.modules[i].module_id ;
             selectModules.appendChild(option);
         }
         document.getElementById('moduleSelector').appendChild(selectModules);
@@ -333,7 +333,7 @@
         function selectQuestions() {
           // Function to create an array of question objects when a module is selected
           for (let i=0; i < data.modules.length; i++) {
-            if ( data.modules[i].module_number == this.value ) {
+            if ( data.modules[i].module_id == this.value ) {
               let module = data.modules[i];
               let introduction = module.introduction;
               let questions = [];
