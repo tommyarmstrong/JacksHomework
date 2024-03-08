@@ -1,470 +1,509 @@
 {
-  "modules":
+  "question_groups":
   [
     {
-      "module_id": "Addition: under 10",
-      "module_name": "",
-      "type": "operator",
-      "x1min": 0,
-      "x1max": 10,
-      "x2min": 0,
-      "x2max": 10,
-      "operator1": "+",
-      "number_questions": 12
-      },
-      {
-        "module_id": "Addition: under 20",
-        "type": "operator",
-        "x1min": 0,
-        "x1max": 20,
-        "x2min": 0,
-        "x2max": 10,
-        "operator1": "+",
-        "number_questions": 12
-      },
-      {
-        "module_id": "Addition: tens",
-        "type": "operator_tens",
-        "x1min": 1,
-        "x1max": 10,
-        "x2min": 1,
-        "x2max": 10,
-        "operator1": "+",
-        "number_questions": 12,
-        "questions":
-          [
-            {
-              "type": "x_operator_y",
-              "x": 12,
-              "y": 30,
-              "operator": "+"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 15,
-              "y": 20,
-              "operator": "+"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 11,
-              "y": 70,
-              "operator": "+"
-            }
-          ]
-      },
-      {
-        "module_id": "Addition: three single digits",
-        "type": "operator",
-        "x1min": 1,
-        "x1max": 10,
-        "x2min": 1,
-        "x2max": 10,
-        "x3min": 1,
-        "x3max": 10,
-        "operator1": "+",
-        "operator2": "+",
-        "number_questions": 12
-      },
-      {
-        "module_id": "Addition: two double digits",
-        "type": "operator",
-        "x1min": 10,
-        "x1max": 49,
-        "x2min": 10,
-        "x2max": 49,
-        "operator1": "+",
-        "number_questions": 10,
-        "questions":
-          [
-            {
-              "type": "x_operator_y",
-              "x": 800,
-              "y": 550,
-              "operator": "+"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 350,
-              "y": 250,
-              "operator": "-"
-            }
-          ]  
-      },
-      {
-        "module_id": "Subtraction: under 10",
-        "type": "operator",
-        "x1min": 0,
-        "x1max": 10,
-        "x2min": 0,
-        "x2max": 10,
-        "operator1": "-",
-        "number_questions": 12
-      },
-      {
-        "module_id": "Subtraction: under 20",
-        "type": "operator",
-        "x1min": 10,
-        "x1max": 20,
-        "x2min": 0,
-        "x2max": 10,
-        "operator1": "-",
-        "number_questions": 12
-      },
-      {
-        "module_id": "Subtraction: between 10 and 20",
-        "type": "operator",
-        "x1min": 10,
-        "x1max": 20,
-        "x2min": 10,
-        "x2max": 20,
-        "operator1": "-",
-        "number_questions": 12
-      },
-      {
-        "module_id": "Subtraction: two single digits",
-        "type": "operator",
-        "x1min": 20,
-        "x1max": 30,
-        "x2min": 1,
-        "x2max": 10,
-        "x3min": 0,
-        "x3max": 10,
-        "operator1": "-",
-        "operator2": "-",
-        "number_questions": 12
-      },
-      {
-        "module_id": "Subtraction: tens",
-                "type": "operator_tens",
-        "questions":
-          [
-            {
-              "type": "x_operator_y",
-              "x": 20,
-              "y": 10,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 30,
-              "y": 10,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 37,
-              "y": 10,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 57,
-              "y": 10,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 43,
-              "y": 40,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 53,
-              "y": 40,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 73,
-              "y": 40,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 25,
-              "y": 20,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 35,
-              "y": 20,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 85,
-              "y": 20,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 21,
-              "y": 20,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 51,
-              "y": 20,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 71,
-              "y": 20,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 57,
-              "y": 10,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 39,
-              "y": 30,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 59,
-              "y": 30,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 79,
-              "y": 30,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 62,
-              "y": 60,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 72,
-              "y": 60,
-              "operator": "-"
-            },
-            {
-              "type": "x_operator_y",
-              "x": 82,
-              "y": 60,
-              "operator": "-"
-            }
-          ]
-      },
-      {
-        "module_id": "Times Tables: Twos",
-        "introduction": "Don't forget that numbers can be multiplied in any order. 2 x 7 and 7 x 2 have the same answer.",
-        "type": "times_table",
-        "number_questions": 10,
-        "x": 2
-      },
-      {
-        "module_id": "Times Tables: Twos (random order)",
-        "type": "times_table_random",
-        "number_questions": 10,
-        "x": 2
-      },
-      {
-        "module_id": "Times Tables: Threes",
-        "type": "times_table",
-        "number_questions": 10,
-        "x": 3
-      },
-      {
-        "module_id": "Times Tables: Threes (random order)",
-        "type": "times_table_random",
-        "number_questions": 10,
-        "x": 3
-      },
-      {
-        "module_id": "Times Tables: Fours",
-        "type": "times_table",
-        "number_questions": 10,
-        "x": 4
-      },
-      {
-        "module_id": "Times Tables: Fours (random order)",
-        "type": "times_table_random",
-        "number_questions": 10,
-        "x": 4
-      },
-      {
-        "module_id": "Times Tables: Fives",
-        "type": "times_table",
-        "number_questions": 10,
-        "x": 5
-      },
-      {
-        "module_id": "Times Tables: Fives (random order)",
-        "type": "times_table_random",
-        "number_questions": 10,
-        "x": 5
-      },
-      {
-        "module_id": "Times Tables: Sixes",
-        "type": "times_table",
-        "number_questions": 10,
-        "x": 6
-      },
-      {
-        "module_id": "Times Tables: Sixes (random order)",
-        "type": "times_table_random",
-        "number_questions": 10,
-        "x": 6
-      },
-      {
-        "module_id": "Times Tables: Tens",
-        "type": "times_table",
-        "number_questions": 10,
-        "x": 10
-      },
-      {
-        "module_id": "Times Tables: Tens (random order)",
-        "type": "times_table_random",
-        "number_questions": 10,
-        "x": 10
-      },
-
-      {
-        "module_id": "Fractions: halves under 20",
-        "type": "fraction",
-        "numerator": 1,
-        "denominator": 2,
-        "xmin": 0,
-        "xmax": 20, 
-        "number_questions": 5
-      },
-      {
-        "module_id": "Fractions: quarters under 20",
-        "type": "fraction",
-        "numerator": 1,
-        "denominator": 4,
-        "xmin": 0,
-        "xmax": 20, 
-        "number_questions": 5
-      },
-      {
-        "module_id": "Fractions: halves under 100",
-        "type": "fraction",
-        "numerator": 1,
-        "denominator": 2,
-        "xmin": 0,
-        "xmax": 100, 
-        "number_questions": 10
-      },
-      {
-        "module_id": "Number Bonds: add to 10",
-        "type": "number_bond",
-        "x1min": 0,
-        "x1max": 10,
-        "total": 10,
-        "number_questions": 10
-      },
-      {
-        "module_id": "Number Bonds: add small number to 20",
-        "type": "number_bond",
-        "x1min": 10,
-        "x1max": 20,
-        "total": 20,
-        "number_questions": 10
-      },
-      {
-        "module_id": "Number Bonds: add big number to 20",
-        "type": "number_bond",
-        "x1min": 0,
-        "x1max": 10,
-        "total": 20,
-        "number_questions": 10
-      },
-      {
-        "module_id": "Number Bonds: add to 20 (mixed)",
-        "type": "number_bond",
-        "x1min": 0,
-        "x1max": 20,
-        "total": 20,
-        "number_questions": 20
-      },
-      {
-        "module_id": "Number Bonds: subtract from 20 (easy)",
-        "type": "operator",
-        "x1min": 20,
-        "x1max": 20,
-        "x2min": 1,
-        "x2max": 10,
-        "operator1": "-",
-        "number_questions": 10
-      },
-      {
-        "module_id": "Number Bonds: subtract from 20 (hard)",
-        "type": "operator",
-        "x1min": 20,
-        "x1max": 20,
-        "x2min": 10,
-        "x2max": 20,
-        "operator1": "-",
-        "number_questions": 10
-      },
-      {
-        "module_id": "Division: by 2 under 20",
-        "type": "operator",
-        "x1min": 2,
-        "x1max": 20,
-        "x2min": 2,
-        "x2max": 2,
-        "operator1": "/",
-        "number_questions": 12
-      },
-      {
-        "module_id": "Division: by 2 under 100",
-        "type": "operator",
-        "x1min": 2,
-        "x1max": 100,
-        "x2min": 2,
-        "x2max": 2,
-        "operator1": "/",
-        "number_questions": 12
-      },
-      {
-        "module_id": "Division: by 10 under 1000",
-        "type": "operator",
-        "x1min": 2,
-        "x1max": 1000,
-        "x2min": 10,
-        "x2max": 10,
-        "operator1": "/",
-        "number_questions": 12
-      },
-      {
-        "module_id": "Division: by 5 under 50",
-        "type": "operator",
-        "x1min": 5,
-        "x1max": 50,
-        "x2min": 5,
-        "x2max": 5,
-        "operator1": "/",
-        "number_questions": 10
-      },
-      {
-        "module_id": "Division: by 5 under 100",
-        "type": "operator",
-        "x1min": 5,
-        "x1max": 100,
-        "x2min": 5,
-        "x2max": 5,
-        "operator1": "/",
-        "number_questions": 10
-      },
-      {
+      "group_name": "Addition",
+      "modules": 
+      [
+        {
+          "module_id": "Addition: under 10",
+          "module_name": "",
+          "type": "operator",
+          "x1min": 0,
+          "x1max": 10,
+          "x2min": 0,
+          "x2max": 10,
+          "operator1": "+",
+          "number_questions": 12
+        },
+        {
+          "module_id": "Addition: under 20",
+          "type": "operator",
+          "x1min": 0,
+          "x1max": 20,
+          "x2min": 0,
+          "x2max": 10,
+          "operator1": "+",
+          "number_questions": 12
+        },
+        {
+          "module_id": "Addition: tens",
+          "type": "operator_tens",
+          "x1min": 1,
+          "x1max": 10,
+          "x2min": 1,
+          "x2max": 10,
+          "operator1": "+",
+          "number_questions": 12,
+          "questions":
+            [
+              {
+                "type": "x_operator_y",
+                "x": 12,
+                "y": 30,
+                "operator": "+"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 15,
+                "y": 20,
+                "operator": "+"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 11,
+                "y": 70,
+                "operator": "+"
+              }
+            ]
+        },
+        {
+          "module_id": "Addition: three single digits",
+          "type": "operator",
+          "x1min": 1,
+          "x1max": 10,
+          "x2min": 1,
+          "x2max": 10,
+          "x3min": 1,
+          "x3max": 10,
+          "operator1": "+",
+          "operator2": "+",
+          "number_questions": 12
+        },
+        {
+          "module_id": "Addition: two double digits",
+          "type": "operator",
+          "x1min": 10,
+          "x1max": 49,
+          "x2min": 10,
+          "x2max": 49,
+          "operator1": "+",
+          "number_questions": 10,
+          "questions":
+            [
+              {
+                "type": "x_operator_y",
+                "x": 800,
+                "y": 550,
+                "operator": "+"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 350,
+                "y": 250,
+                "operator": "-"
+              }
+            ]  
+        }
+      ] 
+    },
+    {
+      "group_name": "Subtraction",
+      "modules": 
+      [
+        {
+          "module_id": "Subtraction: under 10",
+          "type": "operator",
+          "x1min": 0,
+          "x1max": 10,
+          "x2min": 0,
+          "x2max": 10,
+          "operator1": "-",
+          "number_questions": 12
+        },
+        {
+          "module_id": "Subtraction: under 20",
+          "type": "operator",
+          "x1min": 10,
+          "x1max": 20,
+          "x2min": 0,
+          "x2max": 10,
+          "operator1": "-",
+          "number_questions": 12
+        },
+        {
+          "module_id": "Subtraction: between 10 and 20",
+          "type": "operator",
+          "x1min": 10,
+          "x1max": 20,
+          "x2min": 10,
+          "x2max": 20,
+          "operator1": "-",
+          "number_questions": 12
+        },
+        {
+          "module_id": "Subtraction: two single digits",
+          "type": "operator",
+          "x1min": 20,
+          "x1max": 30,
+          "x2min": 1,
+          "x2max": 10,
+          "x3min": 0,
+          "x3max": 10,
+          "operator1": "-",
+          "operator2": "-",
+          "number_questions": 12
+        },
+        {
+          "module_id": "Subtraction: tens",
+                  "type": "operator_tens",
+          "questions":
+            [
+              {
+                "type": "x_operator_y",
+                "x": 20,
+                "y": 10,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 30,
+                "y": 10,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 37,
+                "y": 10,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 57,
+                "y": 10,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 43,
+                "y": 40,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 53,
+                "y": 40,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 73,
+                "y": 40,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 25,
+                "y": 20,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 35,
+                "y": 20,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 85,
+                "y": 20,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 21,
+                "y": 20,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 51,
+                "y": 20,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 71,
+                "y": 20,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 57,
+                "y": 10,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 39,
+                "y": 30,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 59,
+                "y": 30,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 79,
+                "y": 30,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 62,
+                "y": 60,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 72,
+                "y": 60,
+                "operator": "-"
+              },
+              {
+                "type": "x_operator_y",
+                "x": 82,
+                "y": 60,
+                "operator": "-"
+              }
+            ]
+        }
+      ]
+    },
+    {
+      "group_name": "Times Tables",
+      "modules": 
+      [
+        {
+          "module_id": "Times Tables: Twos",
+          "introduction": "Don't forget that numbers can be multiplied in any order. 2 x 7 and 7 x 2 have the same answer.",
+          "type": "times_table",
+          "number_questions": 10,
+          "x": 2
+        },
+        {
+          "module_id": "Times Tables: Twos (random order)",
+          "type": "times_table_random",
+          "number_questions": 10,
+          "x": 2
+        },
+        {
+          "module_id": "Times Tables: Threes",
+          "type": "times_table",
+          "number_questions": 10,
+          "x": 3
+        },
+        {
+          "module_id": "Times Tables: Threes (random order)",
+          "type": "times_table_random",
+          "number_questions": 10,
+          "x": 3
+        },
+        {
+          "module_id": "Times Tables: Fours",
+          "type": "times_table",
+          "number_questions": 10,
+          "x": 4
+        },
+        {
+          "module_id": "Times Tables: Fours (random order)",
+          "type": "times_table_random",
+          "number_questions": 10,
+          "x": 4
+        },
+        {
+          "module_id": "Times Tables: Fives",
+          "type": "times_table",
+          "number_questions": 10,
+          "x": 5
+        },
+        {
+          "module_id": "Times Tables: Fives (random order)",
+          "type": "times_table_random",
+          "number_questions": 10,
+          "x": 5
+        },
+        {
+          "module_id": "Times Tables: Sixes",
+          "type": "times_table",
+          "number_questions": 10,
+          "x": 6
+        },
+        {
+          "module_id": "Times Tables: Sixes (random order)",
+          "type": "times_table_random",
+          "number_questions": 10,
+          "x": 6
+        },
+        {
+          "module_id": "Times Tables: Tens",
+          "type": "times_table",
+          "number_questions": 10,
+          "x": 10
+        },
+        {
+          "module_id": "Times Tables: Tens (random order)",
+          "type": "times_table_random",
+          "number_questions": 10,
+          "x": 10
+        }
+      ]
+    },
+    {
+      "group_name": "Fractions",
+      "modules": 
+      [
+        {
+          "module_id": "Fractions: halves under 20",
+          "type": "fraction",
+          "numerator": 1,
+          "denominator": 2,
+          "xmin": 0,
+          "xmax": 20, 
+          "number_questions": 5
+        },
+        {
+          "module_id": "Fractions: quarters under 20",
+          "type": "fraction",
+          "numerator": 1,
+          "denominator": 4,
+          "xmin": 0,
+          "xmax": 20, 
+          "number_questions": 5
+        },
+        {
+          "module_id": "Fractions: halves under 100",
+          "type": "fraction",
+          "numerator": 1,
+          "denominator": 2,
+          "xmin": 0,
+          "xmax": 100, 
+          "number_questions": 10
+        }
+      ]
+    },
+    {
+      "group_name": "Number Bonds",
+      "modules": 
+      [
+        {
+          "module_id": "Number Bonds: add to 10",
+          "type": "number_bond",
+          "x1min": 0,
+          "x1max": 10,
+          "total": 10,
+          "number_questions": 10
+        },
+        {
+          "module_id": "Number Bonds: add small number to 20",
+          "type": "number_bond",
+          "x1min": 10,
+          "x1max": 20,
+          "total": 20,
+          "number_questions": 10
+        },
+        {
+          "module_id": "Number Bonds: add big number to 20",
+          "type": "number_bond",
+          "x1min": 0,
+          "x1max": 10,
+          "total": 20,
+          "number_questions": 10
+        },
+        {
+          "module_id": "Number Bonds: add to 20 (mixed)",
+          "type": "number_bond",
+          "x1min": 0,
+          "x1max": 20,
+          "total": 20,
+          "number_questions": 20
+        },
+        {
+          "module_id": "Number Bonds: subtract from 20 (easy)",
+          "type": "operator",
+          "x1min": 20,
+          "x1max": 20,
+          "x2min": 1,
+          "x2max": 10,
+          "operator1": "-",
+          "number_questions": 10
+        },
+        {
+          "module_id": "Number Bonds: subtract from 20 (hard)",
+          "type": "operator",
+          "x1min": 20,
+          "x1max": 20,
+          "x2min": 10,
+          "x2max": 20,
+          "operator1": "-",
+          "number_questions": 10
+        }
+      ]
+    },
+    {
+      "group_name": "Division",
+      "modules": 
+      [
+        {
+          "module_id": "Division: by 2 under 20",
+          "type": "operator",
+          "x1min": 2,
+          "x1max": 20,
+          "x2min": 2,
+          "x2max": 2,
+          "operator1": "/",
+          "number_questions": 12
+        },
+        {
+          "module_id": "Division: by 2 under 100",
+          "type": "operator",
+          "x1min": 2,
+          "x1max": 100,
+          "x2min": 2,
+          "x2max": 2,
+          "operator1": "/",
+          "number_questions": 12
+        },
+        {
+          "module_id": "Division: by 10 under 1000",
+          "type": "operator",
+          "x1min": 2,
+          "x1max": 1000,
+          "x2min": 10,
+          "x2max": 10,
+          "operator1": "/",
+          "number_questions": 12
+        }, 
+        {
+          "module_id": "Division: by 5 under 50",
+          "type": "operator",
+          "x1min": 5,
+          "x1max": 50,
+          "x2min": 5,
+          "x2max": 5,
+          "operator1": "/",
+          "number_questions": 10
+        },
+        {
+          "module_id": "Division: by 5 under 100",
+          "type": "operator",
+          "x1min": 5,
+          "x1max": 100,
+          "x2min": 5,
+          "x2max": 5,
+          "operator1": "/",
+          "number_questions": 10
+        }
+      ]
+    },
+    {
+      "group_name": "Time",
+      "modules": 
+      [
+        {
         "module_id": "Time",
         "questions":
           [
@@ -544,8 +583,11 @@
               "answer": 5
             }
           ]
-      }
-    ],
+        }
+      ]
+    
+    }
+  ],
   "messages": [
     "You must be having a laugh!! You're Spurs!!",
     "You need a lot of help. You're only Arsenal!",
@@ -555,4 +597,4 @@
     "Wow that was good! Almost perfect. You're Beacon Knights.",
     "NEWCASTLE! NEWCASTLE! NEWCASTLE! NEWCASTLE! <br><br> You're a genius! WELL DONE!"
   ]
-  }
+}
