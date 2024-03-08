@@ -7,6 +7,7 @@
       [
         {
           "module_id": "Addition: under 10",
+          "level": 1,
           "module_name": "",
           "type": "operator",
           "x1min": 0,
@@ -18,6 +19,7 @@
         },
         {
           "module_id": "Addition: under 20",
+          "level": 1,
           "type": "operator",
           "x1min": 0,
           "x1max": 20,
@@ -28,6 +30,7 @@
         },
         {
           "module_id": "Addition: tens",
+          "level": 1,
           "type": "operator_tens",
           "x1min": 1,
           "x1max": 10,
@@ -59,6 +62,7 @@
         },
         {
           "module_id": "Addition: three single digits",
+          "level": 1,
           "type": "operator",
           "x1min": 1,
           "x1max": 10,
@@ -72,6 +76,7 @@
         },
         {
           "module_id": "Addition: two double digits",
+          "level": 1,
           "type": "operator",
           "x1min": 10,
           "x1max": 49,
@@ -103,6 +108,7 @@
       [
         {
           "module_id": "Subtraction: under 10",
+          "level": 1,
           "type": "operator",
           "x1min": 0,
           "x1max": 10,
@@ -113,6 +119,7 @@
         },
         {
           "module_id": "Subtraction: under 20",
+          "level": 1,
           "type": "operator",
           "x1min": 10,
           "x1max": 20,
@@ -123,6 +130,7 @@
         },
         {
           "module_id": "Subtraction: between 10 and 20",
+          "level": 1,
           "type": "operator",
           "x1min": 10,
           "x1max": 20,
@@ -133,6 +141,7 @@
         },
         {
           "module_id": "Subtraction: two single digits",
+          "level": 1,
           "type": "operator",
           "x1min": 20,
           "x1max": 30,
@@ -146,7 +155,8 @@
         },
         {
           "module_id": "Subtraction: tens",
-                  "type": "operator_tens",
+          "level": 1,
+          "type": "operator_tens",
           "questions":
             [
               {
@@ -279,6 +289,7 @@
       [
         {
           "module_id": "Times Tables: Twos",
+          "level": 1,
           "introduction": "Don't forget that numbers can be multiplied in any order. 2 x 7 and 7 x 2 have the same answer.",
           "type": "times_table",
           "number_questions": 10,
@@ -286,66 +297,77 @@
         },
         {
           "module_id": "Times Tables: Twos (random order)",
+          "level": 1,
           "type": "times_table_random",
           "number_questions": 10,
           "x": 2
         },
         {
           "module_id": "Times Tables: Threes",
+          "level": 2,
           "type": "times_table",
           "number_questions": 10,
           "x": 3
         },
         {
           "module_id": "Times Tables: Threes (random order)",
+          "level": 2,
           "type": "times_table_random",
           "number_questions": 10,
           "x": 3
         },
         {
           "module_id": "Times Tables: Fours",
+          "level": 2,
           "type": "times_table",
           "number_questions": 10,
           "x": 4
         },
         {
           "module_id": "Times Tables: Fours (random order)",
+          "level": 2,
           "type": "times_table_random",
           "number_questions": 10,
           "x": 4
         },
         {
           "module_id": "Times Tables: Fives",
+          "level": 1,
           "type": "times_table",
           "number_questions": 10,
           "x": 5
         },
         {
           "module_id": "Times Tables: Fives (random order)",
+          "level": 1,
           "type": "times_table_random",
           "number_questions": 10,
           "x": 5
         },
         {
           "module_id": "Times Tables: Sixes",
+          "level": 2,
           "type": "times_table",
           "number_questions": 10,
           "x": 6
         },
         {
           "module_id": "Times Tables: Sixes (random order)",
+          "level": 2,
           "type": "times_table_random",
           "number_questions": 10,
           "x": 6
         },
         {
           "module_id": "Times Tables: Tens",
+          "level": 1,
           "type": "times_table",
           "number_questions": 10,
           "x": 10
         },
         {
           "module_id": "Times Tables: Tens (random order)",
+          "level": 1,
           "type": "times_table_random",
           "number_questions": 10,
           "x": 10
@@ -358,6 +380,7 @@
       [
         {
           "module_id": "Fractions: halves under 20",
+          "level": 1,
           "type": "fraction",
           "numerator": 1,
           "denominator": 2,
@@ -367,6 +390,7 @@
         },
         {
           "module_id": "Fractions: quarters under 20",
+          "level": 1,
           "type": "fraction",
           "numerator": 1,
           "denominator": 4,
@@ -376,6 +400,7 @@
         },
         {
           "module_id": "Fractions: halves under 100",
+          "level": 1,
           "type": "fraction",
           "numerator": 1,
           "denominator": 2,
@@ -391,6 +416,7 @@
       [
         {
           "module_id": "Number Bonds: add to 10",
+          "level": 1,
           "type": "number_bond",
           "x1min": 0,
           "x1max": 10,
@@ -399,6 +425,7 @@
         },
         {
           "module_id": "Number Bonds: add small number to 20",
+          "level": 1,
           "type": "number_bond",
           "x1min": 10,
           "x1max": 20,
@@ -407,6 +434,7 @@
         },
         {
           "module_id": "Number Bonds: add big number to 20",
+          "level": 1,
           "type": "number_bond",
           "x1min": 0,
           "x1max": 10,
@@ -415,6 +443,7 @@
         },
         {
           "module_id": "Number Bonds: add to 20 (mixed)",
+          "level": 1,
           "type": "number_bond",
           "x1min": 0,
           "x1max": 20,
@@ -423,6 +452,7 @@
         },
         {
           "module_id": "Number Bonds: subtract from 20 (easy)",
+          "level": 1,
           "type": "operator",
           "x1min": 20,
           "x1max": 20,
@@ -433,6 +463,7 @@
         },
         {
           "module_id": "Number Bonds: subtract from 20 (hard)",
+          "level": 1,
           "type": "operator",
           "x1min": 20,
           "x1max": 20,
@@ -449,6 +480,7 @@
       [
         {
           "module_id": "Division: by 2 under 20",
+          "level": 1,
           "type": "operator",
           "x1min": 2,
           "x1max": 20,
@@ -459,6 +491,7 @@
         },
         {
           "module_id": "Division: by 2 under 100",
+          "level": 1,
           "type": "operator",
           "x1min": 2,
           "x1max": 100,
@@ -469,6 +502,7 @@
         },
         {
           "module_id": "Division: by 10 under 1000",
+          "level": 1,
           "type": "operator",
           "x1min": 2,
           "x1max": 1000,
@@ -479,6 +513,7 @@
         }, 
         {
           "module_id": "Division: by 5 under 50",
+          "level": 1,
           "type": "operator",
           "x1min": 5,
           "x1max": 50,
@@ -489,6 +524,7 @@
         },
         {
           "module_id": "Division: by 5 under 100",
+          "level": 1,
           "type": "operator",
           "x1min": 5,
           "x1max": 100,
@@ -505,6 +541,7 @@
       [
         {
         "module_id": "Time",
+        "level": 1,
         "questions":
           [
             {

@@ -24,8 +24,15 @@ html {
       font-size: 30px;
     }
     .moduleSelector {
-    text-align: right;
+      text-align: right;
     }
+    .difficultySlider {
+      text-align: right;
+      right: 20px; 
+    }
+    .slider_container {
+      text-align: right; /* Aligns the child elements (the slider) to the right */
+  }
     .summaryPercent{
       font-size: 15vw
     }
