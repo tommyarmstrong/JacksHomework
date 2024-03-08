@@ -9,6 +9,7 @@
   </head>
   <body>
     <div class="content">
+      <div class="slider_container"><input type="range" class="difficultySlider" id="difficultySlider" min="1" max="2" step="1"></div>
       <div class="moduleSelector" id="moduleSelector"></div>
       <h1>Jack's Games</h1>
       <div class="intro" id=intro></div>
@@ -17,24 +18,27 @@
       <div class="summaryText" id="summaryText"></div>
     </div>
     <script>
+      // Get the difficulty level
+      let difficulty = '2';       // Default value  
+      document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.getElementById('difficultySlider');
+        slider.addEventListener('input', function() {
+          difficulty = slider.value;
+          doWork(data);
+        });
+       });
+
       // Read data from JSON file 
       const maths_data_url = "./maths.json";
-
       async function getMaths(url) {
-        // Making an API call (request)
-        // and getting the response back
-        const response = await fetch(url);
-
-        // Parsing it to JSON format  
-        var data = await response.json();
-        // Set as a global variable for the browser
-        window.data = data;
-        doWork(data)
+        const response = await fetch(url);  // Make API call (request) and get the response back
+        var data = await response.json();   // Parse to JSON format  
+        window.data = data;                 // Set as a global variable for the browser
+        doWork(data);                        // Call a function to run to build the page
       }
       getMaths(maths_data_url);
   
       // Specify Classes for different question types
-
       class Question {
         // Methods used by question Classes
         calcRandomValue(min, max) {
@@ -313,7 +317,7 @@
         // Create first option as a holding point
         var first_option = document.createElement("option");
         first_option.value = 0;
-        first_option.text = "Pick questions...";
+        first_option.text = "Choose questions...";
         selectModules.appendChild(first_option);
         // Create option group for each group of questions
         for (let i = 0; i < data.question_groups.length; i++) {
@@ -322,15 +326,22 @@
           optgroup.label = data.question_groups[i].group_name; // Set the label for the optgroup
           // Loop through every question
           for (let j = 0; j < data.question_groups[i].modules.length; j++) {
-            // Create options for this optgroup
-            let option = document.createElement("option");
-            option.value = data.question_groups[i].modules[j].module_id;
-            option.text = data.question_groups[i].modules[j].module_id ;
-            optgroup.appendChild(option);   
+            // Filter on difficulty level
+            if ( data.question_groups[i].modules[j].level == difficulty ) {
+              // Create options for this optgroup
+              let option = document.createElement("option");
+              option.value = data.question_groups[i].modules[j].module_id;
+              option.text = data.question_groups[i].modules[j].module_id ;
+              optgroup.appendChild(option);   
+            }
           }        
           // Append the optgroup to the select element
-          selectModules.appendChild(optgroup);
-          document.getElementById('moduleSelector').appendChild(selectModules);
+          if ( optgroup.children.length > 0 ) {
+            selectModules.appendChild(optgroup);
+          }
+          document.getElementById('moduleSelector').innerHTML = "" 
+          document.getElementById('moduleSelector').appendChild(selectModules); 
+
 
         // When a module is selected call a function to create an array
         // of questions
