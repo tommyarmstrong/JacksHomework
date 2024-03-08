@@ -295,8 +295,6 @@
         }
       }
 
-      // BEGINNING OF THE FUNCTIONALITY
-
       // Fisher-Yates (Knuth) algorithym to randomly shuffle an array
       function shuffle(array) {
           for (let i = array.length - 1; i > 0; i--) {
@@ -304,6 +302,8 @@
               [array[i], array[j]] = [array[j], array[i]]; // Swap elements
           }
       }
+
+      // BEGINNING OF THE FUNCTIONALITY
 
       function doWork(data) {
         // Create a module selector
@@ -315,112 +315,121 @@
         first_option.value = 0;
         first_option.text = "Pick questions...";
         selectModules.appendChild(first_option);
-        // Create additional options based on the modules in the data
-        for (let i = 0; i < data.modules.length; i++) {
-            var option = document.createElement("option");
-            option.value = data.modules[i].module_id;
-            option.text = data.modules[i].module_id ;
-            selectModules.appendChild(option);
-        }
-        document.getElementById('moduleSelector').appendChild(selectModules);
+        // Create option group for each group of questions
+        for (let i = 0; i < data.question_groups.length; i++) {
+          // Create an optgroup element
+          let optgroup = document.createElement("optgroup");
+          optgroup.label = data.question_groups[i].group_name; // Set the label for the optgroup
+          // Loop through every question
+          for (let j = 0; j < data.question_groups[i].modules.length; j++) {
+            // Create options for this optgroup
+            let option = document.createElement("option");
+            option.value = data.question_groups[i].modules[j].module_id;
+            option.text = data.question_groups[i].modules[j].module_id ;
+            optgroup.appendChild(option);   
+          }        
+          // Append the optgroup to the select element
+          selectModules.appendChild(optgroup);
+          document.getElementById('moduleSelector').appendChild(selectModules);
 
         // When a module is selected call a function to create an array
         // of questions
         // Each question in the array is an object created from a class
         //
         document.getElementById("modulesList").onchange = selectQuestions;
+        }
 
         function selectQuestions() {
           // Function to create an array of question objects when a module is selected
-          for (let i=0; i < data.modules.length; i++) {
-            if ( data.modules[i].module_id == this.value ) {
-              let module = data.modules[i];
-              let introduction = module.introduction;
-              let questions = [];
-              // Find the type of questions and construct objects 
-              // from appropriate the question Class, then append
-              // to the questions array
-              // 
-              // First questions that are auto generated from metadata
-              if ( module.type == "operator" ) {
-                for (let i=0; i<module.number_questions; i++) {
-                  question = new OperatorQuestion(module);          
-                  questions.push(question);
-                }
-              }
-              if ( module.type == "operator_tens" ) {
-                for (let i=0; i<module.number_questions; i++) {
-                  question = new OperatorTensQuestion(module);          
-                  questions.push(question);
-                }
-              }
-              else if ( module.type == "fraction" ) {
-                for (let i=0; i<module.number_questions; i++) {
-                  question = new FractionQuestion(module);          
-                  questions.push(question);
-                }
-              }
-              else if ( module.type == "number_bond" ) {
-                for (let i=0; i<module.number_questions; i++) {
-                  question = new NumberBondQuestion(module);          
-                  questions.push(question);
-                }
-              }
-              else if ( module.type == "times_table" ) {
-                for (let i = 1; i <= 10; i++) {
-                  question = new SpecificOperatorQuestion(i, module.x, "*");          
-                  questions.push(question);
-                }
-                
-                question = new SpecificOperatorQuestion(module.x, 20, "*");          
-                questions.push(question);
-                question = new SpecificOperatorQuestion(module.x, 100, "*");          
-                questions.push(question);
-                question = new SpecificOperatorQuestion(40, module.x, "*");          
-                questions.push(question);
-                question = new SpecificOperatorQuestion(module.x, 70, "*");          
-                questions.push(question);
-              }
-              else if ( module.type == "times_table_random" ) {
-                // create array of numbers 1 - 10
-                let array = [];
-                for (let i = 1; i <= module.number_questions; i++) {
-                  array.push(i);
-                }
-                // shuffle the array randomly
-                shuffle(array);  
-                for (let i=0; i < module.number_questions; i++) {
-                  question = new SpecificOperatorQuestion(array[i], module.x, "*");          
-                  questions.push(question);
-                }
-              }
-              //
-              // Then specific questions, which can be added
-              if (module.questions) {
-                for (let i=0; i<module.questions.length; i++) {
-                  if ( module.questions[i].type == "hard_coded" ) {
-                    //Generate hardcoded object type
-                    question = new HardCodedxQuestion(module.questions[i].question, module.questions[i].answer);
-                    questions.push(question);
-                  }
-                  else if ( module.questions[i].type == "x_operator_y" ) {
-                    question = new SpecificOperatorQuestion(module.questions[i].x, module.questions[i].y, module.questions[i].operator);
-                    questions.push(question);
-                  }
-                  else if ( module.questions[i].type == "half" ) {
-                    question = new HardCodedHalf(module.questions[i].question);
-                    questions.push(question);
-                  }
-                  else if ( module.questions[i].type == "quarter" ) {
-                    question = new HardCodedQuarter(module.questions[i].question);
+          for (let i=0; i < data.question_groups.length; i++) {
+            for (let j=0; j < data.question_groups[i].modules.length; j++) {
+              if ( data.question_groups[i].modules[j].module_id == this.value ) {
+                let module = data.question_groups[i].modules[j];
+                let introduction = module.introduction;
+                let questions = [];
+                // Find the type of questions and construct objects 
+                // from appropriate the question Class, then append
+                // to the questions array
+                // 
+                // First questions that are auto generated from metadata
+                if ( module.type == "operator" ) {
+                  for (let i=0; i<module.number_questions; i++) {
+                    question = new OperatorQuestion(module);          
                     questions.push(question);
                   }
                 }
-              }
-              // Pass the array of questions to a function that will create the HTML
-              displayQuestions(introduction, questions);         
-            }  
-          }
+                if ( module.type == "operator_tens" ) {
+                  for (let i=0; i<module.number_questions; i++) {
+                    question = new OperatorTensQuestion(module);          
+                    questions.push(question);
+                  }
+                }
+                else if ( module.type == "fraction" ) {
+                  for (let i=0; i<module.number_questions; i++) {
+                    question = new FractionQuestion(module);          
+                    questions.push(question);
+                  }
+                }
+                else if ( module.type == "number_bond" ) {
+                  for (let i=0; i<module.number_questions; i++) {
+                    question = new NumberBondQuestion(module);          
+                    questions.push(question);
+                  }
+                }
+                else if ( module.type == "times_table" ) {
+                  for (let i = 1; i <= 10; i++) {
+                    question = new SpecificOperatorQuestion(i, module.x, "*");          
+                    questions.push(question);
+                  }
+                  question = new SpecificOperatorQuestion(module.x, 20, "*");          
+                  questions.push(question);
+                  question = new SpecificOperatorQuestion(module.x, 100, "*");          
+                  questions.push(question);
+                  question = new SpecificOperatorQuestion(40, module.x, "*");          
+                  questions.push(question);
+                  question = new SpecificOperatorQuestion(module.x, 70, "*");          
+                  questions.push(question);
+                }
+                else if ( module.type == "times_table_random" ) {
+                  // create array of numbers 1 - 10
+                  let array = [];
+                  for (let i = 1; i <= module.number_questions; i++) {
+                    array.push(i);
+                  }
+                  shuffle(array);  // shuffle the array randomly
+                  for (let i=0; i < module.number_questions; i++) {
+                    question = new SpecificOperatorQuestion(array[i], module.x, "*");          
+                    questions.push(question);
+                  }
+                }
+                //
+                // Then specific questions, which can be added
+                if (module.questions) {
+                  for (let i=0; i<module.questions.length; i++) {
+                    if ( module.questions[i].type == "hard_coded" ) {
+                      //Generate hardcoded object type
+                      question = new HardCodedQuestion(module.questions[i].question, module.questions[i].answer);
+                      questions.push(question);
+                    }
+                    else if ( module.questions[i].type == "x_operator_y" ) {
+                      question = new SpecificOperatorQuestion(module.questions[i].x, module.questions[i].y, module.questions[i].operator);
+                      questions.push(question);
+                    }
+                    else if ( module.questions[i].type == "half" ) {
+                      question = new HardCodedHalf(module.questions[i].question);
+                      questions.push(question);
+                    }
+                    else if ( module.questions[i].type == "quarter" ) {
+                      question = new HardCodedQuarter(module.questions[i].question);
+                      questions.push(question);
+                    }
+                  }
+                }
+                // Pass the array of questions to a function that will create the HTML
+                displayQuestions(introduction, questions);         
+              }  
+            }
+          } 
         }
 
         function displayQuestions (introduction, questions) {
