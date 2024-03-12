@@ -359,6 +359,48 @@
           "x": 6
         },
         {
+          "module_id": "Times Tables: Sevens",
+          "level": 2,
+          "type": "times_table",
+          "number_questions": 10,
+          "x": 7
+        },
+        {
+          "module_id": "Times Tables: Sevens (random order)",
+          "level": 2,
+          "type": "times_table_random",
+          "number_questions": 10,
+          "x": 7
+        },
+        {
+          "module_id": "Times Tables: Eights",
+          "level": 2,
+          "type": "times_table",
+          "number_questions": 10,
+          "x": 8
+        },
+        {
+          "module_id": "Times Tables: Eights (random order)",
+          "level": 2,
+          "type": "times_table_random",
+          "number_questions": 10,
+          "x": 8
+        },
+        {
+          "module_id": "Times Tables: Nines",
+          "level": 2,
+          "type": "times_table",
+          "number_questions": 10,
+          "x": 9
+        },
+        {
+          "module_id": "Times Tables: Nines (random order)",
+          "level": 2,
+          "type": "times_table_random",
+          "number_questions": 10,
+          "x": 9
+        },
+        {
           "module_id": "Times Tables: Tens",
           "level": 1,
           "type": "times_table",
