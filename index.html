@@ -130,6 +130,24 @@
         }
       }
 
+      class SpecificOperatorQuestion extends Question {
+        #x1;
+        #x2;
+        #operator1;
+        constructor(x, y, operator) {
+          super();
+          this.#x1 = x;
+          this.#x2 = y;
+          this.#operator1 = operator;        
+        }
+        getQuestion() {
+          return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " = ";
+        }  
+        getAnswer() {
+          return super.evaluateOperation(this.#x1, this.#x2, this.#operator1)
+        }
+      }
+
       class OperatorTensQuestion extends Question {
         #x1min;
         #x1max;
@@ -163,51 +181,40 @@
       }
 
       class FractionQuestion extends Question {
-        #x1min;
-        #x1max;
-        #x1;
+        #x
         #numerator;
         #denominator;
-        constructor(data) {
+        constructor(x, numerator, denominator) {
           super();
-          this.#x1min = data.xmin;
-          this.#x1max = data.xmax;
-          this.#numerator = data.numerator;
-          this.#denominator = data.denominator;
-          
-          // Obtain a random number that will give an integer answer
-          this.#x1 = super.calcRandomValue(this.#x1min, this.#x1max*this.#numerator/this.#denominator) * this.#denominator
+          this.#x = x;
+          this.#numerator = numerator;
+          this.#denominator = denominator;
         }
         getQuestion() {
-          if (this.#numerator/this.#denominator == 0.5) {return("\u00BD of " + this.#x1 + " = ")} 
-          else if (this.#numerator/this.#denominator == 0.25) {return("\u00BC of " + this.#x1 + " = ")}
+          if (this.#numerator/this.#denominator == 0.5) {return("\u00BD of " + this.#x + " = ")} 
+          else if (this.#numerator/this.#denominator == 0.25) {return("\u00BC of " + this.#x + " = ")}
           else {
-            return this.#numerator + " / " + this.#denominator + " of " + this.#x1 + " = ";
+            return this.#numerator + " / " + this.#denominator + " of " + this.#x + " = ";
           }
         }  
         getAnswer() {
-          return this.#x1*this.#numerator/this.#denominator;
+          return this.#x * this.#numerator / this.#denominator;
         }
       }
 
       class NumberBondQuestion extends Question {
-        #x1min;
-        #x1max;
-        #x1;
+        #x;
         #total;
-        constructor(data) {
+        constructor(x, total) {
           super();
-          this.#x1min = data.x1min;
-          this.#x1max = data.x1max;
-          this.#total = data.total;
-          // Obtain a random number 
-          this.#x1 = super.calcRandomValue(this.#x1min, this.#x1max);
+          this.#x = x;
+          this.#total = total;
         }
         getQuestion() {
-          return this.#x1 + " + ";
+          return this.#x + " + ";
         }  
         getAnswer() {
-          return this.#total - this.#x1;
+          return this.#total - this.#x;
         }
         getPostText() {
           return " = " + this.#total;
@@ -239,24 +246,6 @@
           else if ( this.#x1 % 2 == 1 ) {
             return "Odd";
           }
-        }
-      }
-
-      class SpecificOperatorQuestion extends Question {
-        #x1;
-        #x2;
-        #operator1;
-        constructor(x, y, operator) {
-          super();
-          this.#x1 = x;
-          this.#x2 = y;
-          this.#operator1 = operator;        
-        }
-        getQuestion() {
-          return this.#x1 + " " + super.renderOperator(this.#operator1) + " " + this.#x2 + " = ";
-        }  
-        getAnswer() {
-          return super.evaluateOperation(this.#x1, this.#x2, this.#operator1)
         }
       }
 
@@ -383,18 +372,6 @@
                     questions.push(question);
                   }
                 }
-                else if ( module.type == "fraction" ) {
-                  for (let i=0; i<module.number_questions; i++) {
-                    question = new FractionQuestion(module);          
-                    questions.push(question);
-                  }
-                }
-                else if ( module.type == "number_bond" ) {
-                  for (let i=0; i<module.number_questions; i++) {
-                    question = new NumberBondQuestion(module);          
-                    questions.push(question);
-                  }
-                }
                 else if ( module.type == "times_table_new" ) {
                   for (let i = 1; i <= 10; i++) {
                     question = new SpecificOperatorQuestion(i, module.x, "*");          
@@ -440,7 +417,7 @@
                   let array = [];
                   let max_array_size = (module.max - module.min)/module.divide_by + 1;  // the most unique values possible
                   max_array_size = Math.min(max_array_size, module.number_questions);   // size of array is smallest of max possible or from the JSON 
-                  while (array.length < max_array_size) {
+                  while (array.length < max_array_size) {       // fill the array
                     x = calcRandomValue(module.min, module.max)   
                     if ( ( x % module.divide_by == 0 ) ) {      // check number divides without remainders
                       if (array.indexOf(x) == -1) {             // check there are no duplicates in the array
@@ -454,6 +431,46 @@
                     questions.push(question);
                   }
                 }
+                else if ( module.type == "number_bond" ) {
+                  console.log("in function")
+                  // create array of random numbers
+                  let array = [];
+                  let max_array_size = (module.xmax - module.xmin) + 1;     // the most unique values possible
+                  max_array_size = Math.min(max_array_size, module.number_questions);   // size of array is smallest of max possible or from the JSON                   
+                  while (array.length < max_array_size) {         // fill the array
+                    x = calcRandomValue(module.xmin, module.xmax)  
+                    if (array.indexOf(x) == -1) {                 // check there are no duplicates in the array
+                      array.push(x);                              // add to the array
+                    }
+                  }
+                  shuffle(array);  // shuffle the array randomly
+                  for (let i=0; i<array.length; i++) {
+                    question = new NumberBondQuestion(array[i], module.total);          
+                    questions.push(question);
+                  }
+                }
+                else if ( module.type == "fraction" ) {
+                  // create array of random numbers
+                  let array = [];
+                  let fraction = module.numerator/module.denominator
+                  let max_array_size = (module.max - module.min) * fraction + 1;        // the most unique values possible (without remainder)
+                  max_array_size = Math.min(max_array_size, module.number_questions);   // size of array is smallest of max possible or from the JSON 
+                  while (array.length < max_array_size) {           // fill the array
+                    x = calcRandomValue(module.min, module.max) 
+                    if ( ( x % Math.pow(fraction, -1) == 0 ) ) {    // check number divides without remainders
+                      if (array.indexOf(x) == -1) {                 // check there are no duplicates in the array
+                        array.push(x);                              // add to the array
+                      }
+                    }
+                  }
+                  shuffle(array);                                   // shuffle the array randomly
+                  for (let i=0; i < array.length; i++) {
+                    question = new FractionQuestion(array[i], module.numerator, module.denominator);          
+                    questions.push(question);
+                  }
+                }
+
+
                 //
                 // Then specific questions, which can be added
                 if (module.questions) {

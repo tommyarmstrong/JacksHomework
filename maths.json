@@ -439,33 +439,43 @@
       "modules": 
       [
         {
-          "module_id": "Fractions: halves under 20",
+          "module_id": "Fractions: Halves under 20",
           "level": 1,
           "type": "fraction",
           "numerator": 1,
           "denominator": 2,
-          "xmin": 0,
-          "xmax": 20, 
-          "number_questions": 5
+          "min": 0,
+          "max": 20, 
+          "number_questions": 10
         },
         {
-          "module_id": "Fractions: quarters under 20",
+          "module_id": "Fractions: Quarters under 20",
           "level": 1,
           "type": "fraction",
           "numerator": 1,
           "denominator": 4,
-          "xmin": 0,
-          "xmax": 20, 
-          "number_questions": 5
+          "min": 0,
+          "max": 20, 
+          "number_questions": 10
         },
         {
-          "module_id": "Fractions: halves under 100",
+          "module_id": "Fractions: Halves under 100",
           "level": 1,
           "type": "fraction",
           "numerator": 1,
           "denominator": 2,
-          "xmin": 0,
-          "xmax": 100, 
+          "min": 0,
+          "max": 100, 
+          "number_questions": 10
+        },
+        {
+          "module_id": "Fractions: Quarters under 100",
+          "level": 2,
+          "type": "fraction",
+          "numerator": 1,
+          "denominator": 4,
+          "min": 0,
+          "max": 100, 
           "number_questions": 10
         }
       ]
@@ -475,43 +485,43 @@
       "modules": 
       [
         {
-          "module_id": "Number Bonds: add to 10",
+          "module_id": "Number Bonds: Add to 10",
           "level": 1,
           "type": "number_bond",
-          "x1min": 0,
-          "x1max": 10,
+          "xmin": 0,
+          "xmax": 10,
           "total": 10,
           "number_questions": 10
         },
         {
-          "module_id": "Number Bonds: add small number to 20",
+          "module_id": "Number Bonds: Add small number to 20",
           "level": 1,
           "type": "number_bond",
-          "x1min": 10,
-          "x1max": 20,
+          "xmin": 10,
+          "xmax": 20,
           "total": 20,
           "number_questions": 10
         },
         {
-          "module_id": "Number Bonds: add big number to 20",
+          "module_id": "Number Bonds: Add big number to 20",
           "level": 1,
           "type": "number_bond",
-          "x1min": 0,
-          "x1max": 10,
+          "xmin": 0,
+          "xmax": 10,
           "total": 20,
           "number_questions": 10
         },
         {
-          "module_id": "Number Bonds: add to 20 (mixed)",
+          "module_id": "Number Bonds: Add to 20 (mixed)",
           "level": 1,
           "type": "number_bond",
-          "x1min": 0,
-          "x1max": 20,
+          "xmin": 0,
+          "xmax": 20,
           "total": 20,
           "number_questions": 20
         },
         {
-          "module_id": "Number Bonds: subtract from 20 (easy)",
+          "module_id": "Number Bonds: Subtract from 20 (easy)",
           "level": 1,
           "type": "operator",
           "x1min": 20,
@@ -522,7 +532,7 @@
           "number_questions": 10
         },
         {
-          "module_id": "Number Bonds: subtract from 20 (hard)",
+          "module_id": "Number Bonds: Subtract from 20 (hard)",
           "level": 1,
           "type": "operator",
           "x1min": 20,
