@@ -61,8 +61,8 @@
             ]
         },
         {
-          "module_id": "Addition: three single digits",
-          "level": 1,
+          "module_id": "Addition: Three single digits",
+          "level": 2,
           "type": "operator",
           "x1min": 1,
           "x1max": 10,
@@ -75,8 +75,8 @@
           "number_questions": 12
         },
         {
-          "module_id": "Addition: two double digits",
-          "level": 1,
+          "module_id": "Addition: Two double digits",
+          "level": 2,
           "type": "operator",
           "x1min": 10,
           "x1max": 49,
