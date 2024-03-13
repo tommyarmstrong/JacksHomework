@@ -6,7 +6,7 @@
       "modules": 
       [
         {
-          "module_id": "Addition: under 10",
+          "module_id": "Addition: Under 10",
           "level": 1,
           "module_name": "",
           "type": "operator",
@@ -18,7 +18,7 @@
           "number_questions": 12
         },
         {
-          "module_id": "Addition: under 20",
+          "module_id": "Addition: Under 20",
           "level": 1,
           "type": "operator",
           "x1min": 0,
@@ -29,7 +29,7 @@
           "number_questions": 12
         },
         {
-          "module_id": "Addition: tens",
+          "module_id": "Addition: Tens",
           "level": 1,
           "type": "operator_tens",
           "x1min": 1,
@@ -61,7 +61,7 @@
             ]
         },
         {
-          "module_id": "Addition: Three single digits",
+          "module_id": "Addition: Three numbers under ten",
           "level": 2,
           "type": "operator",
           "x1min": 1,
@@ -75,7 +75,7 @@
           "number_questions": 12
         },
         {
-          "module_id": "Addition: Two double digits",
+          "module_id": "Addition: Two numbers in the tens",
           "level": 2,
           "type": "operator",
           "x1min": 10,
@@ -83,22 +83,40 @@
           "x2min": 10,
           "x2max": 49,
           "operator1": "+",
-          "number_questions": 10,
-          "questions":
-            [
-              {
-                "type": "x_operator_y",
-                "x": 800,
-                "y": 550,
-                "operator": "+"
-              },
-              {
-                "type": "x_operator_y",
-                "x": 350,
-                "y": 250,
-                "operator": "-"
-              }
-            ]  
+          "number_questions": 10 
+        },
+        {
+          "module_id": "Addition: Two numbers in the tens (over 100)",
+          "level": 2,
+          "type": "operator",
+          "x1min": 10,
+          "x1max": 99,
+          "x2min": 10,
+          "x2max": 99,
+          "operator1": "+",
+          "number_questions": 10
+        },
+        {
+          "module_id": "Addition: Number in tens and number in hundreds",
+          "level": 2,
+          "type": "operator",
+          "x1min": 100,
+          "x1max": 499,
+          "x2min": 10,
+          "x2max": 99,
+          "operator1": "+",
+          "number_questions": 10
+        },
+        {
+          "module_id": "Addition: Two numbers in the hundreds",
+          "level": 2,
+          "type": "operator",
+          "x1min": 100,
+          "x1max": 490,
+          "x2min": 100,
+          "x2max": 490,
+          "operator1": "+",
+          "number_questions": 10
         }
       ] 
     },
@@ -107,7 +125,7 @@
       "modules": 
       [
         {
-          "module_id": "Subtraction: under 10",
+          "module_id": "Subtraction: Under 10",
           "level": 1,
           "type": "operator",
           "x1min": 0,
@@ -118,7 +136,7 @@
           "number_questions": 12
         },
         {
-          "module_id": "Subtraction: under 20",
+          "module_id": "Subtraction: Under 20",
           "level": 1,
           "type": "operator",
           "x1min": 10,
@@ -129,7 +147,7 @@
           "number_questions": 12
         },
         {
-          "module_id": "Subtraction: between 10 and 20",
+          "module_id": "Subtraction: Between 10 and 20",
           "level": 1,
           "type": "operator",
           "x1min": 10,
@@ -140,7 +158,7 @@
           "number_questions": 12
         },
         {
-          "module_id": "Subtraction: two single digits",
+          "module_id": "Subtraction: Three numbers",
           "level": 1,
           "type": "operator",
           "x1min": 20,
@@ -154,7 +172,7 @@
           "number_questions": 12
         },
         {
-          "module_id": "Subtraction: tens",
+          "module_id": "Subtraction: Subtract tens",
           "level": 1,
           "type": "operator_tens",
           "questions":
@@ -523,56 +541,55 @@
         {
           "module_id": "Division: by 2 under 20",
           "level": 1,
-          "type": "operator",
-          "x1min": 2,
-          "x1max": 20,
-          "x2min": 2,
-          "x2max": 2,
-          "operator1": "/",
-          "number_questions": 12
+          "type": "division",
+          "min": 2,
+          "max": 20,
+          "divide_by": 2,
+          "number_questions": 10
         },
         {
           "module_id": "Division: by 2 under 100",
           "level": 1,
-          "type": "operator",
-          "x1min": 2,
-          "x1max": 100,
-          "x2min": 2,
-          "x2max": 2,
-          "operator1": "/",
-          "number_questions": 12
+          "type": "division",
+          "min": 2,
+          "max": 100,
+          "divide_by": 2,
+          "number_questions": 10
         },
-        {
-          "module_id": "Division: by 10 under 1000",
-          "level": 1,
-          "type": "operator",
-          "x1min": 2,
-          "x1max": 1000,
-          "x2min": 10,
-          "x2max": 10,
-          "operator1": "/",
-          "number_questions": 12
-        }, 
         {
           "module_id": "Division: by 5 under 50",
           "level": 1,
-          "type": "operator",
-          "x1min": 5,
-          "x1max": 50,
-          "x2min": 5,
-          "x2max": 5,
-          "operator1": "/",
+          "type": "division",
+          "min": 5,
+          "max": 50,
+          "divide_by": 5,
           "number_questions": 10
         },
         {
           "module_id": "Division: by 5 under 100",
           "level": 1,
-          "type": "operator",
-          "x1min": 5,
-          "x1max": 100,
-          "x2min": 5,
-          "x2max": 5,
-          "operator1": "/",
+          "type": "division",
+          "min": 5,
+          "max": 100,
+          "divide_by": 5,
+          "number_questions": 10
+        },
+        {
+          "module_id": "Division: by 10 under 1000",
+          "level": 1,
+          "type": "division",
+          "min": 2,
+          "max": 1000,
+          "divide_by": 10,
+          "number_questions": 10
+        },
+        {
+          "module_id": "Division: by 3 under 30",
+          "level": 2,
+          "type": "division",
+          "min": 3,
+          "max": 30,
+          "divide_by": 3,
           "number_questions": 10
         }
       ]

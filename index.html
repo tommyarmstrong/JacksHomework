@@ -309,6 +309,12 @@
           }
       }
 
+      // Calculate a random number from a min and max
+      function calcRandomValue(min, max) {
+        //return Math.floor((Math.random() * max) + min);
+        return Math.floor(Math.random() * (max - min + 1) + min)
+      }
+
       // BEGINNING OF THE FUNCTIONALITY
 
       function doWork(data) {
@@ -426,6 +432,25 @@
                   shuffle(array);  // shuffle the array randomly
                   for (let i=0; i < module.number_questions; i++) {
                     question = new SpecificOperatorQuestion(array[i], module.x, "*");          
+                    questions.push(question);
+                  }
+                }                
+                else if ( module.type == "division" ) {
+                  // create array of random numbers
+                  let array = [];
+                  let max_array_size = (module.max - module.min)/module.divide_by + 1;  // the most unique values possible
+                  max_array_size = Math.min(max_array_size, module.number_questions);   // size of array is smallest of max possible or from the JSON 
+                  while (array.length < max_array_size) {
+                    x = calcRandomValue(module.min, module.max)   
+                    if ( ( x % module.divide_by == 0 ) ) {      // check number divides without remainders
+                      if (array.indexOf(x) == -1) {             // check there are no duplicates in the array
+                        array.push(x);                          // add to the array
+                      }
+                    }
+                  }
+                  shuffle(array);  // shuffle the array randomly
+                  for (let i=0; i < array.length; i++) {
+                    question = new SpecificOperatorQuestion(array[i], module.divide_by, "/");          
                     questions.push(question);
                   }
                 }
